@@ -18,20 +18,22 @@ package HandlingStrings;
 public class LongestPalindromicSubString {
 
   public static void main(String[] args) {
-    String s = "7anana7";
-    System.out.println(isPalindrome(s));
+    String s = "abcbb";
+    System.out.println(longestPalindrome(s));
   }
 
+    public static String longestPalindrome(String s) {
+      if (s == null || s.isEmpty()) return "";
 
-
-    public String longestPalindrome(String s) {
-      if (s == null || s.length() < 1) return "";
 
       // Transform the input string to include special characters
       StringBuilder modifiedS = new StringBuilder("#");
       for (char c : s.toCharArray()) {
         modifiedS.append(c).append("#");
       }
+
+      System.out.println(modifiedS);
+
 
       int n = modifiedS.length();
       int[] P = new int[n]; // Array to store the length of palindromes at each position
