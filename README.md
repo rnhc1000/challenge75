@@ -1,7 +1,7 @@
 ## LeetCode Challenge75 - @Ricardo Ferreira
 The only way to keep your game at a very high level
 is being challenged every day. Nice source of coding challenges at https://leetcode.com
-Lets dive into it!
+Let's dive into it!
 ## _Tools_
 - Java 17
 - IntelliJ Community Edition
@@ -21,7 +21,7 @@ Lets dive into it!
 
 
 ## _Screenshot_
-[![](./carbon.png)]()
+[![](./binarySearch.png)]()
 ## _Links_
 - Live Site URL: [] 
 ## _Built with_
@@ -132,7 +132,7 @@ public class LongestPalindromicSubString {
 - 
 ### _Useful resources_
 - [https://docs.oracle.com/en/java/] Always trust and read the official documentation!
-- [https://cp-algorithms.com/] 
+- [https://cp-algorithms.com/]  A must stop by to tackle DSA...
 ## _Author_
-- Website - [https://ferreiras.dev.br]  A must stop by to tackle DSA...
+- Website - [https://ferreiras.dev.br]  
 ## Acknowledgments
