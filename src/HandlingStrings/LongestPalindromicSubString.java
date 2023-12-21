@@ -25,6 +25,7 @@ public class LongestPalindromicSubString {
     public static String longestPalindrome(String s) {
       if (s == null || s.isEmpty()) return "";
 
+
       // Transform the input string to include special characters
       StringBuilder modifiedS = new StringBuilder("#");
       for (char c : s.toCharArray()) {
@@ -32,6 +33,7 @@ public class LongestPalindromicSubString {
       }
 
       System.out.println(modifiedS);
+
 
       int n = modifiedS.length();
       int[] P = new int[n]; // Array to store the length of palindromes at each position
