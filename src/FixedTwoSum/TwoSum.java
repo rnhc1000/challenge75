@@ -1,7 +1,6 @@
-package twoSum;
+package FixedTwoSum;
 
 import java.util.Arrays;
-import java.util.concurrent.ForkJoinPool;
 
 /**
  * Given an array of integers nums and an integer target,

@@ -5,16 +5,30 @@ import java.util.Arrays;
 public class MostWaterContainer {
 
   public static void main(String[] args) {
-    int[] height = {1,2,1};
+    int[] height = {1,8,6,2,5,4,8,3,7};
     System.out.println(maxArea(height));
   }
-  public static int maxArea(int[] data) {
-    int areaContainer=0;
-    int[] aux = new int[data.length];
+  public static int maxArea(int[] height) {
+    int areaContainer = 0;
+    int left = 0, right = 0;
+    int size = height.length;
+    right = size - 1;
+    while (left < right) {
+      int minHeight = Math.min(height[left], height[right]);
+      areaContainer = Math.max(areaContainer, minHeight * (right - left)); // minimum amount of water
+      if (height[left] < height[right]) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+
+    return areaContainer;
+    /*
+    int[] aux = new int[height.length];
     int max = Integer.MIN_VALUE;
     int min = max-1;
-    int height = 0, pointA=0, pointB=0, width =0;
-    int size = data.length;
+    int pointA=0, pointB=0, width =0;
     for (int i = 0; i < size; i++) {
       if (data[i] > max) {
         max = data[i];
@@ -52,5 +66,7 @@ public class MostWaterContainer {
     }
     areaContainer = pointA * pointB;
     return areaContainer;
+  }
+  */
   }
 }

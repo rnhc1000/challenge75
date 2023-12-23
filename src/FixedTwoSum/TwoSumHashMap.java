@@ -1,4 +1,4 @@
-package twoSum;
+package FixedTwoSum;
 
 import java.util.*;
 

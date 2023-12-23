@@ -13,23 +13,24 @@ public class IntegerToRoman {
   public static String RomanFromInt(int num) {
     StringBuilder roman = new StringBuilder();
     List<Integer> integer = Arrays.asList(
-            1000,900,500,400,100,90,50,40,10,9,5,4,1);
-    List<String>  string = Arrays.asList(
-            "MC", "CM", "D", "CD", "C", "XC", "L","XL","X","IX","V", "IV", "I");
+            1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1);
+    List<String> string = Arrays.asList(
+            "MC", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I");
     long start = System.currentTimeMillis();
     int scanMap = 0;
-    while(num > 0) {
-      if (num >= integer.get(scanMap) ) {
+    while (num > 0) {
+      if (num >= integer.get(scanMap)) {
         roman.append(string.get(scanMap));
-        num= num-integer.get(scanMap);
+        num = num - integer.get(scanMap);
       } else {
         scanMap++;
       }
     }
     long end = System.currentTimeMillis();
-    long time = end-start;
+    long time = end - start;
     return roman.toString();
   }
+
   public static String intToRoman(int num) {
     int[] n = new int[4];
     StringBuilder roman = new StringBuilder();
@@ -65,7 +66,7 @@ public class IntegerToRoman {
     map.put(2000, "MM");
     map.put(3000, "MMM");
     n[0] = num % 10;
-    n[1]= ((num / 10) % 10) * 10;
+    n[1] = ((num / 10) % 10) * 10;
     n[2] = ((num / 100) % 10) * 100;
     n[3] = ((num / 1000) % 10) * 1000;
     for (int i = n.length - 1; i >= 0; i--) {
@@ -76,7 +77,7 @@ public class IntegerToRoman {
     return roman.toString();
   }
 
-  public static String IntegerRomanLinkedHashMap(int num){
+  public static String IntegerRomanLinkedHashMap(int num) {
     StringBuilder roman = new StringBuilder();
     Map<Integer, String> map = new LinkedHashMap<>();
     map.put(1000, "M");
@@ -93,10 +94,10 @@ public class IntegerToRoman {
     map.put(4, "IV");
     map.put(1, "I");
 
-    for(Map.Entry<Integer, String> entry : map.entrySet()){
+    for (Map.Entry<Integer, String> entry : map.entrySet()) {
       System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
     }
-    map.forEach((key,value) -> System.out.println(key + " " + value));
+    map.forEach((key, value) -> System.out.println(key + " " + value));
 
     return roman.toString();
   }
