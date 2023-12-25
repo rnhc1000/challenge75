@@ -37,7 +37,7 @@ public class StringToInteger {
     int r = myAtoi(s);
     System.out.println(r);
     System.out.println(revertAtoi(r));
-  }
+   }
 
   public static int myAtoi(String s) {
     String response = "";
@@ -62,7 +62,4 @@ public class StringToInteger {
     }
     return reverse / 10;
   }
-
-
-
 }
