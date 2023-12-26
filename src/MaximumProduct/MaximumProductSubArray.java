@@ -12,8 +12,6 @@ public class MaximumProductSubArray {
     int size = numbers.length;
     for (int i = 0; i < size; i++) {
       if (numbers[0] == 0) {
-        min = 1;
-        max = 1;
         answer = Math.max(min, max);
         continue;
       }
