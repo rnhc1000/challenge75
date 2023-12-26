@@ -27,7 +27,6 @@ public class Fibonacci {
   }
 
   public static int[] fibonacciSeries(int n) {
-
     int[] m = {0,1};
     if (n <=2) {
       return m;
@@ -35,8 +34,9 @@ public class Fibonacci {
     int[] series = new int[n];
     series[0] = 0;
     series[1] = 1;
+    int sum=0;
     for (int i=2; i<n;i++) {
-      int sum = series[i-1] + series[i-2];
+      sum = series[i-1] + series[i-2];
       series[i]=sum;
     }
     return series;
