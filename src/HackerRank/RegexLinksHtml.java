@@ -25,6 +25,7 @@ public class RegexLinksHtml {
       System.out.println("Line " + i + 1 + ": ");
       input[i] = sc.nextLine();
     }
+    String regex = "(http:\\/\\/|https:\\/\\/)[a-z].*\\.([a-z]{2,3})(\\.[a-z]{2})?(\\/[a-zA-Z#?]+)?";
     String regexOne = "(http://|https://)[a-z]+\\.[a-z]{2,}";
     String regexTwo = "(>).*[^</a>]";
     Pattern pattern = Pattern.compile(regexOne);
