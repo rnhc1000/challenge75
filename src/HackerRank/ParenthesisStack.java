@@ -33,16 +33,18 @@ import static java.util.List.of;
  * if the second is a closing, -> pop stack
  * if the second is an opening, ->push stack and so on
  * at the end if all are balanced the stack size will be zero
- * and the method isEmpty will retiurn true, false otherwise
+ * and the method isEmpty will return true, false otherwise
  */
 public class ParenthesisStack {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String s ="";
-    //System.out.print("Input the string: ");
+    System.out.println("Input the string of (), [], {} in any order or -1 to exit");
     while (sc.hasNext()) {
       s = sc.next();
-      //System.out.println(s.length());
+      if (s.equals("-1")) {
+        System.exit(0);
+      }
       if (isBalanced(s)){
         System.out.println("Is Balanced");
       } else {
