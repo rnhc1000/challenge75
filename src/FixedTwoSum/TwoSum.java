@@ -1,6 +1,7 @@
 package FixedTwoSum;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Given an array of integers nums and an integer target,
@@ -28,18 +29,24 @@ import java.util.Arrays;
 public class TwoSum {
 
   public static void main(String[] args) {
-    int[] nums= {12,3,4,67,80,115,4,56,8};
-    int target = 11;
-    System.out.println(Arrays.toString(twoSum(nums,target)));
-
+    Random random = new Random();
+    int size = random.nextInt(0, 19);
+    int[] nums = new int[size];
+    for (int i = 0; i < size; i++) {
+      nums[i] = random.nextInt(0, 99);
+    }
+    int target = random.nextInt(0, 59);
+    System.out.println(Arrays.toString(nums));
+    System.out.println("Target: " + target + "-> "+ Arrays.toString(twoSum(nums, target)));
   }
+
   public static int[] twoSum(int[] nums, int target) {
     int[] response = new int[2];
     int sizeOfNums = nums.length;
-    int sum=0;
+    int sum = 0;
     boolean flag = false;
-    for(int i=0; i<sizeOfNums; i++) {
-      for (int j = i+1; j<sizeOfNums; j++) {
+    for (int i = 0; i < sizeOfNums; i++) {
+      for (int j = i + 1; j < sizeOfNums; j++) {
         sum = nums[i] + nums[j];
         if (sum == target) {
           response[0] = i;
@@ -50,6 +57,7 @@ public class TwoSum {
       }
       if (flag) break;
     }
+
     return response;
   }
 }

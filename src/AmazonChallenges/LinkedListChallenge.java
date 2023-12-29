@@ -1,4 +1,12 @@
 package AmazonChallenges;
+/**
+ * Remove n elements of an array that sums to zero and
+ * return an array wth the values that do not sum up to zero.
+ * Input:
+ * int[] x = {3, 4, -7, 5, -6, 1, 3, 4, -7, 1, 1, 2, 3, 4, -7};
+ * Output:
+ * int[] y = { 1, 1, 2, 3, 4, -7}
+ */
 
 import java.util.LinkedList;
 
