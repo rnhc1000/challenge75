@@ -73,9 +73,9 @@ public class TrustJudge {
     for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
       if (!map.containsKey(possibleJudge)) {
         judge = possibleJudge;
+        break;
       }
     }
     return judge;
   }
-
 }
