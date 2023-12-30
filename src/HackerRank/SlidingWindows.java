@@ -1,7 +1,5 @@
 package HackerRank;
 
-import java.util.Arrays;
-
 /**
  * @author rferreira
  * You are given an array of integers nums, there is a sliding window of size iteratorOfNumbers
@@ -11,7 +9,7 @@ import java.util.Arrays;
  * Return the maxOfEachArray sliding window.
  * Example 1:
  * Input: nums = [1,3,-1,-3,5,3,6,7,8], iteratorOfNumbers = 3
- * Output: [3,3,5,5,6,7]
+ * Output: [3,3,5,5,6,7,8]
  * Explanation:
  * Window position                Max
  * ---------------               -----
@@ -26,32 +24,20 @@ import java.util.Arrays;
 public class SlidingWindows {
 
   public static void main(String[] args) {
-    int[] x = new int[]{1, 3, -1, -3, 5, 3, 6, 7, 8};
+    int[] x = new int[]{1,3,-1,-3,5,3,6,7,8};
     int iteratorOfNumbers = 3;
-    int[] maximumOfEachWindow = new int[x.length-2];
-    maximumOfEachWindow = returnMaxWindow(x,iteratorOfNumbers);
+    int[] maximumOfEachWindow = new int[x.length - 2];
+    maximumOfEachWindow = returnMaxWindow(x, iteratorOfNumbers);
     for (int i : maximumOfEachWindow) {
-      System.out.print(i+" ");
+      System.out.print(i + " ");
     }
   }
 
   public static int[] returnMaxWindow(int[] numbers, int window) {
-    int numberOfArrays = numbers.length - 2;
-    int[][] slidingWindow = new int[numberOfArrays][window];
-    int[] maximumOfEachArray = new int[numberOfArrays];
+    int numberOfArrays = numbers.length-2;
     int maxOfEachArray = 0;
-    int incrementOnNumbers = 0;
-    int iteratorOfNumbers = 0;
-
-    for (int i = 0; i < slidingWindow.length; i++) {
-      for (int j = 0; j < slidingWindow[i].length; j++) {
-        slidingWindow[i][j] = numbers[iteratorOfNumbers];
-        iteratorOfNumbers++;
-      }
-      incrementOnNumbers++;
-      iteratorOfNumbers = incrementOnNumbers;
-    }
-
+    int[] maximumOfEachArray = new int[numberOfArrays];
+    int[][] slidingWindow = returnProcessedWindow(numbers, window);
     for (int i = 0; i < slidingWindow.length; i++) {
       for (int j = 0; j < slidingWindow[j].length; j++) {
         if (slidingWindow[i][j] > maxOfEachArray) {
@@ -61,6 +47,22 @@ public class SlidingWindows {
       }
     }
     return maximumOfEachArray;
+  }
+
+  public static int[][] returnProcessedWindow(int[] toBeProcessedArrays, int window) {
+    int numberOfArrays = toBeProcessedArrays.length - 2;
+    int[][] slidingWindow = new int[numberOfArrays][window];
+    int incrementOnNumbers = 0;
+    int iteratorOfNumbers = 0;
+    for (int i = 0; i < slidingWindow.length; i++) {
+      for (int j = 0; j < slidingWindow[i].length; j++) {
+        slidingWindow[i][j] = toBeProcessedArrays[iteratorOfNumbers];
+        iteratorOfNumbers++;
+      }
+      incrementOnNumbers++;
+      iteratorOfNumbers = incrementOnNumbers;
+    }
+    return slidingWindow;
   }
 }
 
