@@ -24,13 +24,15 @@ package HackerRank;
 public class SlidingWindows {
 
   public static void main(String[] args) {
-    int[] x = new int[]{1,3,-1,-3,5,3,6,7,8};
+    int[] numbers = new int[]{1,3,-1,-3,5,3,6,7,8};
     int iteratorOfNumbers = 3;
-    int[] maximumOfEachWindow = new int[x.length - 2];
-    maximumOfEachWindow = returnMaxWindow(x, iteratorOfNumbers);
+    int[] maximumOfEachWindow = new int[numbers.length - 2];
+    maximumOfEachWindow = returnMaxWindow(numbers, iteratorOfNumbers);
+    System.out.print("[ ");
     for (int i : maximumOfEachWindow) {
       System.out.print(i + " ");
     }
+    System.out.print("]");
   }
 
   public static int[] returnMaxWindow(int[] numbers, int window) {
