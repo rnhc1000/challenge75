@@ -1,7 +1,7 @@
 package BinarySearch;
 
-import java.util.Random;
 import java.util.Arrays;
+import java.util.Random;
 
 public class BinarySearchAlgo {
   public static void main(String[] args) {
@@ -16,14 +16,37 @@ public class BinarySearchAlgo {
     for (int i : numbers) {
       System.out.print(" " + i);
     }
-    int key = 12;
-    System.out.print("\nKey picked: " + key+ "\n");
-    int response = binarySearchAlgo(numbers, key);
-    if (response < 0) {
+    int key = 57;
+    System.out.print("\nKey picked: " + key + "\n");
+    int[] response = binarySearch(numbers, key);
+/*    if (response < 0) {
       System.out.println("Key Not Found!!!");
     } else {
       System.out.println("Key " + key + " is in the position: " + response);
     }
+    */
+
+    System.out.print("Value: " + response[0] + " Key: " + response[1]);
+
+  }
+
+  public static int[] binarySearch(int[] numbers, int keyToBeFound) {
+    int[] response = {0, 0};
+    int left = 0, right = 0, middle = 0;
+    right = numbers.length - 1;
+    while (left <= right) {
+      middle = left + (right - left) / 2;
+      if (numbers[middle] == keyToBeFound) {
+        response[0] = numbers[middle];
+        response[1] = middle;
+        return response;
+      } else if(numbers[middle] < keyToBeFound) {
+        left=middle+1;
+      } else {
+        right=middle-1;
+      }
+    }
+    return response;
   }
 
   public static int binarySearchAlgo(int[] numbers, int key) {
