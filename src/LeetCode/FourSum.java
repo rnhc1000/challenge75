@@ -16,6 +16,7 @@ public class FourSum {
 
   }
 
+
   public static int[][] fourSum(int[] numbers, int target) {
     int[][] check = new int[][]{{}};
     int[][] sumToZero = new int[4][target];
@@ -37,31 +38,32 @@ public class FourSum {
     List<Integer> w = new ArrayList<>();
     List<List<Integer>> a = new ArrayList<>(); //Use Arraylist inside
 
-
     for (int i = 0; i < size; i++) {
       for (int j = i; j < size; j++) {
         for (int k = i; k <= j; k++) {
           w.add(numbers[k]);
           a.add(new ArrayList<>(w));
-
           System.out.print(numbers[k] + " ");
         }
-
+      }
 /*        while (w.size() != 4) {
           continue;
-        }*/
+        }
 
-      }
     }
-/*    for (int[] x : sumToZero) {
-      for (int y : x) {
-        w.add(y);
-        if (w.size() != 4) continue;
-        a.add(new ArrayList<>(w));
+    */
+
+
+      for (int[] x : sumToZero) {
+        for (int y : x) {
+          w.add(y);
+          if (w.size() != 4) continue;
+          a.add(new ArrayList<>(w));
+        }
       }
-    }*/
-    System.out.println(w);
-    System.out.println(a);
+//    System.out.println(w);
+//    System.out.println(a);
+    }
     return check;
   }
 }
