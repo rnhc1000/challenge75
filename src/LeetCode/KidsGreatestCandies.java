@@ -6,8 +6,8 @@ import java.util.List;
 
 public class KidsGreatestCandies {
   public static void main(String[] args) {
-    int[] candies = {12,1,11};
-    int extraCandies = 10;
+    int[] candies = {2,3,5,1,3};
+    int extraCandies = 3;
     System.out.println(kidsWithCandies(candies, extraCandies));
   }
 
@@ -15,20 +15,31 @@ public class KidsGreatestCandies {
     List<Boolean> happyKids = new ArrayList<>();
 
     int sizeOfCandies = candies.length;
-    for (int i = 0; i < sizeOfCandies; i++) {
-      candies[i] += extraCandies;
+    int j=0;
+    for (int i : candies) {
+      candies[j] = i+extraCandies;
+      j++;
     }
     System.out.println(Arrays.toString(candies));
-    int maxCandies = Integer.MIN_VALUE;
-    for (int i : candies) {
-      if (i >= maxCandies) {
-        maxCandies = i;
+    int maxCandies = candies[0];
+    int minCandies = maxCandies;
+    for (int candy : candies) {
+      maxCandies = Math.max(maxCandies, candy);
+    }
+    for (int candy : candies) {
+      if (candy >= (maxCandies - extraCandies)) {
         happyKids.add(true);
       } else {
-        maxCandies-=1;
         happyKids.add(false);
       }
     }
+/*    for (int candy : candies) {
+      if (candy >= (maxCandies - extraCandies)) {
+        happyKids.add(true);
+      } else {
+        happyKids.add(false);
+      }
+    }*/
     return happyKids;
   }
 }
