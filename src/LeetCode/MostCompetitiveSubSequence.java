@@ -23,7 +23,7 @@ public class MostCompetitiveSubSequence {
 
   public static void main(String[] args) {
     int[] numbers = {2,4,3,3,5,4,9,6};
-    int k = 4;
+    int k = 2;
     int [] response = mostCompetitiveSequence(numbers,k);
     System.out.println(Arrays.toString(response));
 
