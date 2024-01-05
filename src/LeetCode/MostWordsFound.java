@@ -33,7 +33,6 @@ public class MostWordsFound {
   }
   
   public static int longestPhrases(String[] sentences) {
-    int asInt = Arrays.stream(sentences).mapToInt(x -> x.split(" ").length).max().getAsInt();
-    return asInt;
+    return Arrays.stream(sentences).mapToInt(x -> x.split(" ").length).max().getAsInt();
   }
 }

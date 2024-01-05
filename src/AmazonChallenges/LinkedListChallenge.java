@@ -1,7 +1,7 @@
 package AmazonChallenges;
 /**
  * Remove n elements of an array that sums to zero and
- * return an array wth the values that do not sum up to zero.
+ * return an array with the values that do not sum up to zero.
  * Input:
  * int[] x = {3, 4, -7, 5, -6, 1, 3, 4, -7, 1, 1, 2, 3, 4, -7};
  * Output:
@@ -13,18 +13,17 @@ import java.util.LinkedList;
 public class LinkedListChallenge {
 
   public static void main(String[] args) {
-    LinkedList<Integer> ll = new LinkedList<>();
-    int[] x = {3, 4, -7, 5, -6, 1, 3, 4, -7, 1, 1, 2, 3, 4, -7};
-    for (int y : x) {
-      ll.add(y);
+    LinkedList<Integer> linkedList = new LinkedList<>();
+    int[] numbers = {3, 4, -7, 5, -6, 1, 3, 4, -7, 1, 1, 2, 3, 4, -7};
+    for (int number : numbers) {
+      linkedList.add(number);
     }
-    LinkedList<Integer> response = amazonChallenge(ll);
+    System.out.println(linkedList);
+    LinkedList<Integer> response = amazonChallenge(linkedList);
     System.out.println(response);
   }
   public static LinkedList<Integer> amazonChallenge(LinkedList<Integer> amazon) {
     LinkedList<Integer> sumToZero = new LinkedList<>();
-    System.out.println(amazon);
-
     int size = amazon.size();
     int left = 0;
     int right = size - 1;
