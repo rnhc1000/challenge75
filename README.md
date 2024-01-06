@@ -57,7 +57,7 @@ public class LongestPalindromicSubString {
 
 
   public String longestPalindrome(String s) {
-    if (s == null || s.length() < 1) return "";
+    if (s == null || s.isEmpty()) return "";
 
     // Transform the input string to include special characters
     StringBuilder modifiedS = new StringBuilder("#");
