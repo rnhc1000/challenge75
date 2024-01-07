@@ -14,7 +14,7 @@ public class MaxSubArray {
     int sum = 0;
     int size = numbers.length;
     int current = numbers[0];
-    int maximum = numbers[0];
+    int maximum = Integer.MIN_VALUE;
     for (int i = 1; i < size; i++) {
       current = Math.max(numbers[i], numbers[i] + current);
       maximum = Math.max(maximum, current);

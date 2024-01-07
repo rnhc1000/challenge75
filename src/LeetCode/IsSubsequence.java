@@ -13,13 +13,25 @@ import java.util.*;
  * Example 2:
  * Input: s = "axc", t = "ahbgdc"
  * Output: false
+ * Intuition
+ * As position is maintained we just need to keep track of chars visited in t from s.
+ * Nice explanation by
+ * <a href="https://leetcode.com/surajcode/">...</a>
+ * Approach
+ * Iterate through both the strings, if char matches increment both the counter else just
+ * increment counter of t string.
+ * Complexity
+ * Time complexity:
+ * O(n)
+ * Space complexity:
+ * O(1)
  */
 public class IsSubsequence {
 
   public static void main(String[] args) {
-    String s = "abc";
-    String t = "ahbgdec";
-    boolean response = isSubsequence(s, t);
+    String s = "aec";
+    String t = "ahbgdc";
+    boolean response = subSequence(s, t);
     if (response) {
       System.out.println("String s is a subsequence os String t");
     } else {
@@ -27,25 +39,38 @@ public class IsSubsequence {
     }
   }
 
+  public static boolean subSequence(String s, String t) {
+    char[] sToChar = s.toCharArray();
+    char[] tToChar = t.toCharArray();
+    int lenOfsToChar = sToChar.length;
+    int lenOftToChar= tToChar.length;
+    int indexOfS = 0, indexOfT = 0;
+    while (indexOfS < lenOfsToChar && indexOfT < lenOftToChar) {
+      if (sToChar[indexOfS] == tToChar[indexOfT]) {
+        indexOfS++;
+        indexOfT++;
+      } else {
+        indexOfT++;
+      }
+    }
+    return indexOfS == lenOfsToChar;
+  }
   public static boolean isSubsequence(String s, String t) {
-    boolean response = false;
     char[] sOne = s.toCharArray();
     char[] sTwo = t.toCharArray();
     List<Integer> index = new ArrayList<>();
     int size = sOne.length;
     int j = 0;
     if (sOne.length > sTwo.length) return false;
-
-    Map<Character, Integer> map = new HashMap<>();
-
+    Map<Integer, Character> map = new HashMap<>();
     for (int i = 0; i < sTwo.length; i++) {
-      map.put(sTwo[i], i);
+      map.put(i, sTwo[i]);
     }
     while (size > 0) {
-      for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+      for (Map.Entry<Integer, Character> entry : map.entrySet()) {
         char key = sOne[j];
-        if (entry.getKey() == key) {
-          index.add(entry.getValue());
+        if (entry.getValue() == key) {
+          index.add(entry.getKey());
           break;
         }
       }
@@ -53,9 +78,9 @@ public class IsSubsequence {
       size--;
     }
     System.out.println(index);
+    if (index.size() != sOne.length) return false;
     List<Integer> check = new ArrayList<>(index);
     Collections.sort(check);
-
     return check.equals(index);
   }
 }
