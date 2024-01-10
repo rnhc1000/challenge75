@@ -11,10 +11,7 @@ package BalancedCharacters;
  *
  */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class BalancedCharacters {
   public static void main(String[] args) {
@@ -29,7 +26,6 @@ public class BalancedCharacters {
 
   public static boolean isValid(String s) {
     boolean response = false;
-
     Map<Character, Character> dictionary = new HashMap<>();
     dictionary.put('{', '}');
     dictionary.put('[', ']');
@@ -37,14 +33,14 @@ public class BalancedCharacters {
     dictionary.put('!', '?');
     dictionary.put('<', '>');
 
-    Stack<Character> stack = new Stack<>();
+    Queue<Character> stack = new LinkedList<>();
     char [] c = s.toCharArray();
     for (char ch : c) {
       if(dictionary.containsKey(ch)) {
-        stack.push(ch);
+        stack.add(ch);
       } else if(dictionary.containsValue(ch)) {
         if(!stack.isEmpty() && dictionary.get(stack.peek()).equals(ch)) {
-          stack.pop();
+          stack.remove();
         } else{
           return false;
         }
