@@ -21,8 +21,15 @@ package LeetCode;
  * 4 --> 100
  * 5 --> 101
  * R = Q/D + r
+ * int aux = o_n;
+ * int countOnes = 0;
+ * while (aux != 0) {
+ *   aux = aux & (aux - 1);
+ *   countOnes++;
  */
 
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Arrays;
 
 public class CountingBits {
@@ -41,19 +48,25 @@ public class CountingBits {
       int countOnes = 0;
       while (aux != 0) {
         aux = aux & (aux - 1);
-        countOnes++;    }
+        countOnes++;
+      }
       numberOfOnes[o_n] = countOnes;
     }
     return numberOfOnes;
   }
 
   public static String intToBin(int n) {
-      int countOnes = 0;
-      StringBuilder sb = new StringBuilder();
-      while (n != 0) {
-        n = n & (n - 1);
-        sb.append(n);
+    int countOnes = 0;
+    Queue<Integer> q = new PriorityQueue<>();
+    while (n > 0) {
+      q.add(n % 2);
+      n = n / 2;
     }
-    return sb.toString();
+    int[] c = new int[q.size()];
+    StringBuilder sb = new StringBuilder();
+    while (!q.isEmpty()) {
+      sb.append(q.remove());
+    }
+    return sb.reverse().toString();
   }
 }
