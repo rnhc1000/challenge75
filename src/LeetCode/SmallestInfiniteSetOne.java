@@ -21,7 +21,6 @@ public class SmallestInfiniteSetOne {
         nums = x;
         break;
       }
-
     }
     return nums;
   }

@@ -12,8 +12,6 @@ class A {
   A() {
   }
 
-  ;
-
   A(int a, int b) {
     this.b = b;
     this.a = a;

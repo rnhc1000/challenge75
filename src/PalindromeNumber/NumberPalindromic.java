@@ -6,6 +6,7 @@ public class NumberPalindromic {
     int n = 757;
     System.out.println(isPalindrome(n));
   }
+
   public static boolean isPalindrome(int n) {
 
     boolean response = false;
@@ -15,13 +16,13 @@ public class NumberPalindromic {
     }
     int left = 0;
     long reverse = 0L;
-    while(number != 0) {
+    while (number != 0) {
       left = number % 10;
       reverse += left;
-      reverse*=10;
-      number/=10;
+      reverse *= 10;
+      number /= 10;
     }
-    reverse/=10;
+    reverse /= 10;
 
     if (reverse == n) {
       response = true;
