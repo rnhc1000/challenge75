@@ -46,6 +46,5 @@ public class NumericTest {
     result[1] = countZero;
     result[2] = countNegative;
     return result;
-
   }
 }

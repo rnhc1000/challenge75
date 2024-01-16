@@ -1,9 +1,10 @@
 package HackerRank;
 /*
- * given the html snippet code, return link and decription
+ * given the html snippet code, return link and description
+ * Input:
  * <a href="http://www.hackerrank.com">HackerRank</a>
+ * Output:
  * http://www.hackerrank.com,HackerRank
- *
  *
  **/
 
@@ -43,22 +44,18 @@ public class RegexLinksHtml {
       }
     }
 
-    for (int i = 0; i<n ; i++) {
+    for (int i = 0; i < n; i++) {
       input[i] = links[0] + names[0].replace(">", ",");
     }
 
-            StringBuilder sb = new StringBuilder();
-
-    sb.append(links[0]);
-
-
+    StringBuilder sb = new StringBuilder();
+    String sx = sb.append(links[0]).toString();
     for (String s : links) {
       System.out.println(s);
     }
     for (String s : names) {
       System.out.println(s);
     }
-
     for (String s : input) {
       System.out.println(s);
     }
