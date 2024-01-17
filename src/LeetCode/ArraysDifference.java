@@ -46,6 +46,15 @@ Boolean solution provided by
 https://leetcode.com/mcihan7/
  */
 
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
+
 public class ArraysDifference {
   public static void main(String[] args) {
     int[] nums1 = {1, 2, 3, 4};
