@@ -7,4 +7,5 @@ public @interface ClassPreamble {
     String lastModified() default "N/A";
     String lastModifiedBy() default "N/A";
     String[] reviewers();
+    String description() default "N/A";
   }
