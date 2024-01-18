@@ -57,7 +57,7 @@ import java.util.PriorityQueue;
  * Two priority queues, pq1 and pq2, are created. Priority queues are data structures that allow efficient
  * insertion and retrieval of elements while maintaining a specific order.
  * In this case, the elements are integers, and the order is ascending (greater<int>).
- * A long long variable ans is initialized to store the total cost.
+ * A long variable ans is initialized to store the total cost.
  * The code enters a loop that executes k times, where k is the number of workers to be hired.
  * Inside the loop, two nested while loops are used to populate pq1 and pq2 with candidates from the costs
  * vector. The conditions for these loops are as follows:
