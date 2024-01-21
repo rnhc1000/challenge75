@@ -19,7 +19,7 @@ package LeetCode;
  * 1. Right -> Down -> Down
  * 2. Down -> Down -> Right
  * 3. Down -> Right -> Down
- *
+ * <p>
  * Nice explanation by:
  * <a href="https://leetcode.com/Mohamed-Afzal_Nandolia/">...</a>
  * Intuition
@@ -50,12 +50,12 @@ package LeetCode;
  * Space Complexity: The code uses additional space to store the arr array, which has a
  * space complexity of O(m * n) as well, since it has the same dimensions as the input grid.
  * After the loops
- *    m = 3, n = 7
- *         [28,21,15,10,6,3,1]
- *         [7,6,5,4,3,2,1]
- *         [1,1,1,1,1,1,1]
- *         return arr[0][0];//we return the 1st element
- *  ----
+ * m = 3, n = 7
+ * [28,21,15,10,6,3,1]
+ * [7,6,5,4,3,2,1]
+ * [1,1,1,1,1,1,1]
+ * return arr[0][0];//we return the 1st element
+ * ----
  * A pure mathematics solution for people who are interested.
  * This can be seen as a counting problem in discrete math.
  * If we can only travel down or right, then every path from the starting point to
@@ -74,25 +74,24 @@ package LeetCode;
  */
 public class UniquePaths {
   public static void main(String[] args) {
-    int m = 3, n = 2;
-    int response = uniquePaths(m,n);
+    int m = 4, n = 2;
+    int response = fatorial(m);
     System.out.println(response);
   }
 
   public static int uniquePaths(int m, int n) {
     int[][] uniquePath = new int[m][n];
-    for(int i = m - 1; i >= m-1; i--){
-      for(int j = n-1; j >= 0; j--){
+    for (int i = m - 1; i >= m - 1; i--) {
+      for (int j = n - 1; j >= 0; j--) {
         uniquePath[i][j] = 1;
       }
     }
 
-    for(int i = m - 2; i >= 0; i--){
-      for(int j = n - 1; j >= 0; j--){
-        if(j == n - 1){
-          uniquePath[i][j] += uniquePath[i+1][j];
-        }
-        else{
+    for (int i = m - 2; i >= 0; i--) {
+      for (int j = n - 1; j >= 0; j--) {
+        if (j == n - 1) {
+          uniquePath[i][j] += uniquePath[i + 1][j];
+        } else {
           uniquePath[i][j] = uniquePath[i + 1][j] + uniquePath[i][j + 1];
         }
       }
@@ -100,19 +99,21 @@ public class UniquePaths {
 
     return uniquePath[0][0];//we return the 1st element
   }
-  public static int uniquePathss(int m, int n ) {
+
+  public static int uniquePathss(int m, int n) {
     long response = 1;
     for (int i = 1; i <= m - 1; i++) {
       response = response * (n - 1 + i) / i;
     }
-    return (int)response;
+    return (int) response;
   }
+
   public static int uniquePathx(int m, int n) {
     int j = factorial(m + n);
     int k = factorial(n);
     int l = factorial(m);
 
-    return j/(k*l);
+    return j / (k * l);
   }
 
   public static int factorial(int n) {
@@ -125,5 +126,12 @@ public class UniquePaths {
     }
 
     return fat;
+  }
+
+  public static int fatorial(int n) {
+    if (n == 0) {
+      return 1;
+    }
+    return n * fatorial(n - 1);
   }
 }
