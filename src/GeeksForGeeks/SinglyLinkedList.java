@@ -72,9 +72,9 @@ public class SinglyLinkedList {
   public void printList(ListNode node) {
     while (head != null) { // Loop through the linked list
       if (head.next == null) { // If the current node is the last node
-        System.out.println("[" + head.data + "] [" + head + "]->" + "(null)"); // Print the node value and null
+        System.out.print("[" + head.data + "] [" + head + "]->" + "(null)" + "\n"); // Print the node value and null
       } else {
-        System.out.println("[" + head.data + "] [" + head + "]->" + head.next); // Print the node value and the next node
+        System.out.print("[" + head.data + "] [" + head + "]->" + head.next+ "\n"); // Print the node value and the next node
       }
       head = head.next; // Move to the next node
     }
