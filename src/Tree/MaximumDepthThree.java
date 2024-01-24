@@ -14,17 +14,19 @@ class Node {
 
 class BinaryTree {
   public Node root;
+
   public void add(int value) {
-    root = addElements2Tree(root, value);
+
+    root = insert(root, value);
   }
-  static Node addElements2Tree(Node current, int value) {
+  static Node insert(Node current, int value) {
     if (current == null) {
       return new Node(value);
     }
     if (value < current.value) {
-      current.left = addElements2Tree(current.left, value);
+      current.left = insert(current.left, value);
     } else if (value > current.value) {
-      current.right = addElements2Tree(current.right, value);
+      current.right = insert(current.right, value);
     } else {
       return current;
     }

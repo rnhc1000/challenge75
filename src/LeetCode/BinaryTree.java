@@ -26,11 +26,11 @@ package LeetCode;
  */
 // Class containing left and right child
 // of current node and key value
-class Node {
+class BinaryNode {
   int key;
-  Node left, right;
+  BinaryNode left, right;
 
-  public Node(int item)
+  public BinaryNode(int item)
   {
     key = item;
     left = right = null;
@@ -38,7 +38,7 @@ class Node {
 
   @Override
   public String toString() {
-    return "Node{" +
+    return "ListBinaryNode{" +
             "key=" + key +
             ", left=" + left +
             ", right=" + right +
@@ -47,11 +47,11 @@ class Node {
 }
 public class BinaryTree {
   // Root of Binary Tree
-  Node root;
+  BinaryNode root;
 
   // Constructors
   BinaryTree(int key) {
-    root = new Node(key);
+    root = new BinaryNode(key);
   }
   BinaryTree() {
     root = null;
@@ -69,22 +69,22 @@ public class BinaryTree {
     BinaryTree tree = new BinaryTree();
 
     // Create root
-    tree.root = new Node(1);
+    tree.root = new BinaryNode(1);
         /* Following is the tree after above statement
            1
           / \
         null null
         */
 
-    tree.root.left = new Node(2);
-    tree.root.right = new Node(3);
+    tree.root.left = new BinaryNode(2);
+    tree.root.right = new BinaryNode(3);
         /* 2 and 3 become left and right children of 1
               1
              / \
             2   3
            / \ / \
        null null null null */
-    tree.root.left.left = new Node(4);
+    tree.root.left.left = new BinaryNode(4);
         /* 4 becomes left child of 2
                1
               / \
