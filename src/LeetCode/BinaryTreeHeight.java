@@ -53,7 +53,6 @@ public class BinaryTreeHeight {
 
 
   public static int height(TreeNode root) {
-
     // Initialising a variable to count the
     // height of tree
     Queue<TreeNode> q = new LinkedList<TreeNode>();
@@ -84,5 +83,4 @@ public class BinaryTreeHeight {
     int rHeight = maxxDepth(root.right);
     return Math.max(lHeight, rHeight) + 1;
   }
-
 }
