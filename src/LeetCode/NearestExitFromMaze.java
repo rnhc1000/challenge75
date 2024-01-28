@@ -1,5 +1,8 @@
 package LeetCode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * You are given an m x n matrix maze (0-indexed) with empty cells (represented as '.')
  * and walls (represented as '+'). You are also given the entrance of the maze, where
@@ -21,7 +24,55 @@ package LeetCode;
  * Thus, the nearest exit is [0,2], which is 1 step away.
  */
 public class NearestExitFromMaze {
+  static class Triple {
+    int first;
+    int second;
+    int step;
+
+    Triple (int fst, int scnd, int step) {
+      this.first = fst;
+      this.second = scnd;
+      this.step = step;
+    }
+  }
+
   public int nearestExit(char[][] maze, int[] entrance) {
-    return 0;
+    int n = maze.length;
+    int m = maze[0].length;
+
+    int x = entrance[0];
+    int y = entrance[1];
+
+    int[] delRow = {1, -1, 0, 0};
+    int[] delCol = {0, 0, 1, -1};
+
+    int response = 0;
+
+    Queue<Triple> queue = new LinkedList<Triple >();
+    queue.add(new Triple (x, y, 0));
+
+    while (!queue.isEmpty()) {
+      int row = queue.peek().first;
+      int col = queue.peek().second;
+      int step = queue.peek().step;
+      maze[row][col] = '+';
+      queue.poll();
+
+      for (int i = 0; i < 4; i++) {
+        int rows = row + delRow[i];
+        int cols = col + delCol[i];
+
+        if (rows >= 0 && rows < n && cols >= 0 && cols < m && maze[rows][cols] == '.') {
+          maze[rows][cols] = '+';
+          queue.add(new Triple (rows, cols, step + 1));
+          if (rows == 0 || cols == 0 || rows == n - 1 || cols == m - 1) {
+            response = step + 1;
+            return response;
+          }
+        }
+      }
+    }
+    return -1;
   }
 }
+

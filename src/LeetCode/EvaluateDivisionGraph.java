@@ -1,5 +1,7 @@
 package LeetCode;
 
+import java.util.*;
+
 /**
  * You are given an array of variable pairs equations and an array of real
  * numbers values, where equations[i] = [Ai, Bi] and values[i] represent the
@@ -33,4 +35,69 @@ package LeetCode;
  * Output: [0.50000,2.00000,-1.00000,-1.00000]
  */
 public class EvaluateDivisionGraph {
+  public static void main(String[] args) {
+    List<List<String>> equations = List.of(
+            List.of("a","b"),
+            List.of("b","c"),
+            List.of("bc","cd")
+    );
+
+    List<List<String>> queries = List.of(
+            List.of("a","c"),
+            List.of("c","b"),
+            List.of("bc","cd"),
+            List.of("cd","bc")
+    );
+
+    double[] values = {1.5,2.5,5.0};
+
+    double[] response = calcEquation(equations,values, queries);
+
+    for (double d: response) {
+      System.out.print(d + " ");
+    }
+
+  }
+  public static double[] calcEquation(List<List<String>> equations, double[] values,
+                                      List<List<String>> queries) {
+
+    int sizeQueries = queries.size();
+    int sizeEquations = equations.size();
+    double[] response = new double[queries.size()];
+    Map<String, Map<String, Double>> adjacentList = new HashMap<>();
+    for (int i = 0; i < sizeEquations; ++i) {
+      final String A = equations.get(i).get(0);
+      final String B = equations.get(i).get(1);
+      adjacentList.putIfAbsent(A, new HashMap<>());
+      adjacentList.putIfAbsent(B, new HashMap<>());
+      adjacentList.get(A).put(B, values[i]);
+      adjacentList.get(B).put(A, 1.0 / values[i]);
+    }
+    for (int i = 0; i < sizeQueries; ++i) {
+      final String A = queries.get(i).get(0);
+      final String C = queries.get(i).get(1);
+      if (!adjacentList.containsKey(A) || !adjacentList.containsKey(C))
+        response[i] = -1.0;
+      else
+        response[i] = divide(adjacentList, A, C, new HashSet<>());
+    }
+
+    return response;
+  }
+  private static double divide(Map<String, Map<String, Double>> adjacentList,
+                               final String A,
+                               final String C,
+                               Set<String> seen) {
+    if (A.equals(C))
+      return 1.0;
+    seen.add(A);
+    for (final String B : adjacentList.get(A).keySet()) {
+      if (seen.contains(B))
+        continue;
+      final double result = divide(adjacentList, B, C, seen);
+      if (result > 0)
+        return adjacentList.get(A).get(B) * result;
+    }
+    return -1.0;
+  }
 }
