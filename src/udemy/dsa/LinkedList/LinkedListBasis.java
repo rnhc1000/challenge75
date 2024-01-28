@@ -57,6 +57,8 @@ public class LinkedListBasis {
     node = linkedList.remove(2,size);
     System.out.println(node);
     linkedList.printList();
+    linkedList.reverse(size);
+    linkedList.printList();
   }
 
   static class LinkedList {
@@ -175,6 +177,20 @@ public class LinkedListBasis {
       previousNode.next = toBeRemoved.next;
       toBeRemoved.next = null;
       return toBeRemoved;
+    }
+
+    public void reverse(Integer size) {
+      Node current = head;
+      head = tail;
+      tail = current;
+      Node beforeCurrent = null;
+      Node afterCurrent = head.next;
+      for (int i = 0; i < size; i++) {
+        afterCurrent = current.next;
+        current.next = beforeCurrent;
+        beforeCurrent = current;
+        current = afterCurrent;
+      }
     }
     public Node getHead() {
       return head;
