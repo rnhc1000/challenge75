@@ -13,7 +13,6 @@ public class Fibonacci {
     Scanner input = new Scanner(System.in);
     int size = input.nextInt();
     long start = System.currentTimeMillis();
-//    List<Long> l= Stream.iterate(new Long[]{0L, 1L}, p -> new Long[]{p[1], p[0] + p[1]}).map(p -> p[0]).limit(5).toList()
     List<Integer> fibonacci = Stream.iterate(new int[]{0,1}, p -> new int[]{p[1],p[0]+p[1]})
             .map(p->p[0])
             .limit(size)
@@ -23,8 +22,6 @@ public class Fibonacci {
     }
     input.close();
     long end = System.currentTimeMillis();
-
     System.out.println("\nTotal: " + (end-start) + " ms");
-
   }
 }
