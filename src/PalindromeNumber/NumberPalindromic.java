@@ -3,7 +3,7 @@ package PalindromeNumber;
 public class NumberPalindromic {
 
   public static void main(String[] args) {
-    int n = 757;
+    int n = 77577;
     System.out.println(isPalindrome(n));
   }
 
@@ -24,10 +24,6 @@ public class NumberPalindromic {
     }
     reverse /= 10;
 
-    if (reverse == n) {
-      response = true;
-    }
-    System.out.println(reverse);
-    return response;
+    return reverse == n;
   }
 }
