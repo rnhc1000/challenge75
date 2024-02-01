@@ -1,4 +1,4 @@
-package udemy.dsa.queue;
+package udemy.dsa.queueLinkedList;
 
 public class Main {
   public static void main(String[] args) {

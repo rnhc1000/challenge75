@@ -1,4 +1,4 @@
-package udemy.dsa.stack;
+package udemy.dsa.stackLinkedList;
 
 public class Main {
   public static void main(String[] args) {
