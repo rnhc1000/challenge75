@@ -66,7 +66,7 @@ public class GroupAnagrams {
 
     Map<String, List<String>> dictionary = new HashMap<>();
     for (String string : strings) {
-             char[] c = string.toCharArray();
+      char[] c = string.toCharArray();
       Arrays.sort(c);
       String canonical = new String(c);
       if(dictionary.containsKey(canonical)) {

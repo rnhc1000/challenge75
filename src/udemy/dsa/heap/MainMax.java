@@ -1,6 +1,6 @@
 package udemy.dsa.heap;
 
-public class Main {
+public class MainMax {
   public static void main(String[] args) {
     Heap heap = new Heap();
     heap.insert(99);

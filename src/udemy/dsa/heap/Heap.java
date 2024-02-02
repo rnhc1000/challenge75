@@ -52,7 +52,8 @@ public class Heap {
     sinkDown(0);
     return maxValue;
   }
-  public void sinkDown(Integer index) {
+
+  public void sinkDownn(Integer index) {
     int maxIndex = index;
     while(true) {
       int leftIndex = leftChild(index);
@@ -65,6 +66,28 @@ public class Heap {
       }
       if (maxIndex != index) {
         swap( index,maxIndex);
+        index = maxIndex;
+      } else {
+        return;
+      }
+    }
+  }
+  private void sinkDown(int index) {
+    int maxIndex = index;
+    while (true) {
+      int leftIndex = leftChild(index);
+      int rightIndex = rightChild(index);
+
+      if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
+        maxIndex = leftIndex;
+      }
+
+      if (rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)) {
+        maxIndex = rightIndex;
+      }
+
+      if (maxIndex != index) {
+        swap(index, maxIndex);
         index = maxIndex;
       } else {
         return;
