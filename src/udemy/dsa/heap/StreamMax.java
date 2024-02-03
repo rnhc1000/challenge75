@@ -50,7 +50,7 @@ public class StreamMax {
         heap.insert(num);
         store.add(heap.getHeap().get(0));
       }
-      
+
       return  store;
     }
 
