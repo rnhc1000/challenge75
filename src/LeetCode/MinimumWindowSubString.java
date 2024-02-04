@@ -1,7 +1,5 @@
 package LeetCode;
 
-import java.util.*;
-
 /**
  * Given two strings s and t of lengths m and n respectively, return the minimum window
  * substring  of s such that every character in t (including duplicates) is included in
@@ -88,9 +86,9 @@ public class MinimumWindowSubString {
       frequencyOfStringT.put(t.charAt(i), counter+1);
     }
     char[] cs = s.toCharArray();
-    for (int i = 0; i < cs.length; i++) {
-      if(frequencyOfStringT.containsKey(cs[i])) {
-        frequencyOfStringT.put(cs[i],frequencyOfStringT.getOrDefault((cs[i]),1) + 1);
+    for (char c : cs) {
+      if (frequencyOfStringT.containsKey(c)) {
+        frequencyOfStringT.put(c, frequencyOfStringT.getOrDefault(c, 1) + 1);
       }
     }
     System.out.println(frequencyOfStringT);
