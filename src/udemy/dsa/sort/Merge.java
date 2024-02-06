@@ -23,7 +23,7 @@ public class Merge {
       } else {
         combined[index] = array2[j];
         index++;
-        i++;
+        j++;
       }
       while (i < size1) {
         combined[index] = array1[i];
@@ -35,7 +35,6 @@ public class Merge {
         index++;
         j++;
       }
-
     }
     return combined;
   }
