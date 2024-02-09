@@ -6,8 +6,8 @@ import java.util.Deque;
 import java.util.List;
 
 /**
- * @param int n  ->  indicate a position of a number in a fibonacci series
- * @return int r -> number in  position n
+ * @param  int n  -> indicate position of a number in a fibonacci series
+ * @return int r  -> number in  position n
  * Example:
  * position = 6 ;
  * value = 8;
@@ -20,18 +20,18 @@ public class Fibonacci {
     int a = 1;
     int b = 2;
     int response = tail(n, a, b);
-//    System.out.println(response);
-//    iterationOne(n);
+    System.out.println(response);
+    iterationOne(n);
     System.out.println();
     String s = "kevin";
-//    System.out.println(revertString(s));
-//    System.out.println(gcdRecursive(24,9));
+    System.out.println(revertString(s));
+    System.out.println(gcdRecursive(24,9));
     int[] nums = { 1,2,3,4,5,6,7,8,9};
     int index = 0;
     int item = 9;
     int left = 0;
     int right = nums.length-1;
-//    System.out.println(recursiveFind(nums, item, index));
+    System.out.println(recursiveFind(nums, item, index));
     System.out.println(binarySearch( nums, item, left, right));
   }
 
@@ -61,21 +61,16 @@ public class Fibonacci {
 
     // list containing the values
     List<Integer> nums = new ArrayList<>();
-
     nums.add(0);
     nums.add(1);
     for (int i = 1; i < n; i++) {
       nums.add(nums.get(i) + nums.get(i - 1));
     }
-
     return nums;
   }
 
   public static void iterationOne(int n) {
-
-    int a = 0;
-    int b = 1;
-
+    int a = 0, b = 1;
     while (a < n) {
       System.out.print(" " + a);
       int temp = b;
@@ -86,13 +81,12 @@ public class Fibonacci {
 
   public static String reverse(String s) {
     Deque<Character> queue = new ArrayDeque<>();
-    int i = 0;
+    StringBuilder sb = new StringBuilder();
     char[] ch = s.toCharArray();
     for (char c : ch) {
       queue.push(c);
     }
-    System.out.println(queue);
-    StringBuilder sb = new StringBuilder();
+
     while (!queue.isEmpty()) {
       sb.append(queue.pop());
     }
@@ -100,9 +94,7 @@ public class Fibonacci {
   }
 
   public static String revertString(String s) {
-
     if (s.isEmpty()) return s;
-    System.out.println(s.substring(1));
     return revertString(s.substring(1))  + s.charAt(0);
   }
 
@@ -113,16 +105,16 @@ public class Fibonacci {
     return gcdRecursive(b, a%b);
   }
 
-
   public static int recursiveFind(int[] container, int item, int index) {
-    if (index >=container.length) return -1;
+    if (index >=container.length){
+      return -1;
+    }
 
     if (item == container[index]) {
       return index;
     }
     return recursiveFind(container, item, index+1);
   }
-// 1,2,3,4,5,6,7
   public static int binarySearch(int[] container, int item, int left, int right) {
     if (right < left) return -1;
     int middle = (left + right)/2;
