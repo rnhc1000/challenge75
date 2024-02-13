@@ -45,13 +45,13 @@ public class KadaneAlgo {
 
   public static int largestSumSubArray(int[] numbers) {
     if (numbers.length == 0) return 0;
-    int maxSum = Integer.MIN_VALUE;
+    int maximumSum = Integer.MIN_VALUE;
     int currentSum = 0;
     for (int number : numbers) {
       currentSum = Math.max(currentSum, 0);
-      maxSum = Math.max(maxSum, currentSum += number);
+      maximumSum = Math.max(maximumSum, currentSum += number);
     }
-    return maxSum;
+    return maximumSum;
   }
 }
 

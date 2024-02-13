@@ -32,9 +32,7 @@ public class SmallestPositiveInteger {
       System.out.print(" " + l);
     }
     int count = 1;
-
     for (; count <= set.size(); count++) {
-
       if (!set.contains(count)) {
         return count;
       }

@@ -41,21 +41,23 @@ public class FindDuplicates {
     System.out.println(response);
   }
   public static int findDuplicate(int[] nums) {
-    int slow = nums[0];
-    int fast = nums[0];
+    /**
+     * Floyd's Tortoise and Hare algorithm
+     */
+    int slowPointer = nums[0];
+    int fastPointer = nums[0];
 
     do {
-      slow = nums[slow];
-      fast = nums[nums[fast]];
-    } while (slow != fast);
+      slowPointer = nums[slowPointer];
+      fastPointer = nums[nums[fastPointer]];
+    } while (slowPointer != fastPointer);
 
-    slow = nums[0];
-    while (slow != fast) {
-      slow = nums[slow];
-      fast = nums[fast];
+    slowPointer = nums[0];
+    while (slowPointer != fastPointer) {
+      slowPointer = nums[slowPointer];
+      fastPointer = nums[fastPointer];
     }
-
-    return slow;
+    return slowPointer;
   }
 
   public int findDuplicates(int[] nums) {
