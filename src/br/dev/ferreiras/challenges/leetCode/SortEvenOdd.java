@@ -29,11 +29,12 @@ import java.util.PriorityQueue;
  * Explanation:
  * Since there is exactly one odd index and one even index, no rearrangement of values takes place.
  * The resultant array formed is [2,1], which is the same as the initial array.
+ * //9,46,15,45,15,41,27,34,32,31,33,31,36,26,36,16,44,6
  */
 public class SortEvenOdd {
   public static void main(String[] args) {
     int[] numbers = {36, 45, 32, 31, 15, 41, 9, 46, 36, 6, 15, 16, 33, 26, 27, 31, 44, 34};
-    int[] response = sortEvenOdd(numbers);
+    int[] response = sortEvenOdds(numbers);
     System.out.print("[");
     for (int r : response) {
       System.out.print(" " + r);
@@ -65,68 +66,14 @@ public class SortEvenOdd {
       response[i + 1] = odds.get(j);
       j++;
     }
-//    } else {
-//      int j = 0;
-//      for (int i = 0; i < size-1; i += 2) {
-//        response[i] = odds.get(j);
-//        response[i + 1] = evens.get(j);
-//        j++;
-//      }//9,46,15,45,15,41,27,34,32,31,33,31,36,26,36,16,44,6
-//    }
-
-
-    System.out.println(odds);
-    System.out.println(evens);
-
-
-//    for (int i = 0; i < size; i++) {
-//      if (nums[i] % 2 == 0) {
-//        response[even] = nums[i];
-//        even += 2;
-//      } else {
-//        response[odd] = nums[i];
-//        odd += 2;
-//      }
-//    }
-//
-//    odd = odds.size()-1;
-//    even = 0;
-//    int countEven = 0;
-//    int countOdd = 1;
-//    while (size > 0) {
-//      response[countEven] = evens.get(even);
-//      response[countOdd] = odds.get(odd);
-//      countEven+=2;
-//      countOdd+=2;
-//      odd--;
-//      even++;
-//      size-=2;
-//
-//    }
-//
-//
-//    for (int i = 1; i < response.length - 2; i++) {
-//      if (response[i] % 2 == 0) {
-//        if (response[i] > response[i + 2]) {
-//          int temp = response[i + 2];
-//          response[i + 2] = response[i];
-//          response[i] = temp;
-//        }
-//      } else {
-//        int temp = response[i];
-//        response[i] = response[i+2];
-//        response[i+2] = temp;
-//      }
-
-
     return response;
   }
-
-  public static int[] sortEvenOddd(int[] nums) {
+  public static int[] sortEvenOdds(int[] nums) {
 
     PriorityQueue<Integer> even = new PriorityQueue<>((a, b) -> (a - b));
-    PriorityQueue<Integer> odd = new PriorityQueue<>((a, b) -> (b - a));
+    PriorityQueue<Integer> odd =  new PriorityQueue<>((a, b) -> (b - a));
     int size = nums.length;
+
     for (int i = 0; i < size; ++i) {
       if (i % 2 == 0) {
         even.add(nums[i]);
