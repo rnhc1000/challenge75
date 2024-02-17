@@ -1,5 +1,7 @@
 package br.dev.ferreiras.challenges.leetCode;
 
+import java.util.Arrays;
+
 /**
  * You are given an integer array cost where cost[i] is the cost of ith step
  * on a staircase. Once you pay the cost, you can either climb one or two steps.
@@ -48,4 +50,6 @@ public class ClimbingStairs {
     if (n==0 || n==1) return cost[n];
     return cost[n] + Math.min(minCost(cost, n-1), minCost(cost, n-2));
   }
+
+
 }

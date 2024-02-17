@@ -20,6 +20,7 @@ public class LeastNumberUniqueIntegerAfterKRemovals {
       map.put(a, map.getOrDefault((a), 0) + 1);
     }
     System.out.println(map);
+
     Queue<Integer> queue = new PriorityQueue<>(map.values());
     System.out.println(queue);
     while (k > 0 && !queue.isEmpty()) {
