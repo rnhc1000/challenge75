@@ -46,8 +46,8 @@ public class TrappedWater {
           nums[j] = temp;
         }
       }
-      return nums;
     }
+    return nums;
   }
 
   static long trappingWater(int[] arr, int n) {
@@ -126,7 +126,7 @@ public class TrappedWater {
         int length =  i - stack.peek() - 1;
         int width = Math.min(A[i], A[stack.peek()]) - A[top];
         res += length * width;
-   
+
       }
       stack.push(i);
       i = i + 1;
