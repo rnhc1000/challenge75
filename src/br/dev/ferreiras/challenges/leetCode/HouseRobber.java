@@ -29,7 +29,7 @@ package br.dev.ferreiras.challenges.leetCode;
 public class HouseRobber {
 
   public static void main(String[] args) {
-    int[] nums = {1, 2,1};
+    int[] nums = {2,7,9,3,1};
     int total = rob(nums);
     System.out.println(total);
   }
@@ -48,8 +48,10 @@ public class HouseRobber {
     aux[1] = Math.max(nums[0],nums[1]);
 
       for (int i = 2; i < len; i++) {
-
-        aux[i] = Math.max(aux[i-1], aux[i-2] + nums[i]);
+        int a = aux[i-1];
+        int b = aux[i-2];
+        int c = b + nums[i];
+        aux[i] = Math.max(a,c);
       }
     return aux[len-1];
   }
