@@ -39,6 +39,11 @@ public class FindDuplicates {
         System.out.print("[ " + duplicate + " ]");
       }
     }
+    int[] r = dreamArrayHandling(array);
+    System.out.println("---------------");
+    System.out.println(Arrays.toString(r));
+
+    System.out.println(duplicatesTortoiseHare());
   }
 
   public static int[] findDuplicates(int[] numbers) {
@@ -61,4 +66,48 @@ public class FindDuplicates {
     Arrays.sort(duplicates);
     return duplicates;
   }
+
+  public static int[] dreamArrayHandling(int[] numbers) {
+    int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+    for (int number : numbers) {
+      max = Math.max(max, number);
+      min = Math.min(min, number);
+    }
+    return new int[]{min, max};
+  }
+
+  public static int duplicatesTortoiseHare() {
+    Random random = new Random();
+    int size = random.nextInt(0, 99);
+    System.out.println("Size: " + size);
+    int[] numbers = new int[size];
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+    for (int i = 0; i < size; i++) {
+      numbers[i] = random.nextInt(0, 99);
+      max = Math.max(max, numbers[i]);
+      min = Math.min(min, numbers[i]);
+    }
+    Arrays.sort(numbers);
+    System.out.println(Arrays.toString(numbers));
+    System.out.println("Min: " + min);
+
+    int slowPointer = 0, fastPointer = 0;
+
+    int[] nums = { 1,2,3,4,5,6,7,7,8,8,9,9,0};
+
+
+    do {
+      slowPointer = nums[slowPointer];
+      fastPointer = nums[nums[fastPointer]];
+    } while (slowPointer != fastPointer);
+
+    slowPointer = nums[0];
+    while (slowPointer != fastPointer) {
+      slowPointer = nums[slowPointer];
+      fastPointer = nums[fastPointer];
+    }
+    return slowPointer;
+  }
 }
+
