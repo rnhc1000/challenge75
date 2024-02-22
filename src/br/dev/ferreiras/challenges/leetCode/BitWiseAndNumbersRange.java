@@ -29,4 +29,5 @@ public class BitWiseAndNumbersRange {
     }
     return left <<response ;
   }
+
 }
