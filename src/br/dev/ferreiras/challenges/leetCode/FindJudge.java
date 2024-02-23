@@ -1,5 +1,9 @@
 package br.dev.ferreiras.challenges.leetCode;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * In a town, there are n people labeled from 1 to n. There is a rumor that one of these
  * people is secretly the town judge.
@@ -114,6 +118,8 @@ public class FindJudge {
   }
 
   public static int findJudge(int n, int[][] trust) {
+
+    Map<Integer,Integer> map = new HashMap<>();
       int[] trusted = new int[n + 1];
 
       for (int[] pair : trust) {
