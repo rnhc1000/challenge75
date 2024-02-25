@@ -25,10 +25,25 @@ import java.util.stream.IntStream;
  */
 public class MissingNumber {
   public static void main(String[] args) {
-    int[] numbers = {-1, -3};
-//    int[] numbers = {1, 3, 6, 4, 1, 2};
-    int r = getMissingNo(numbers);
+//    int[] numbers = {-1, -3};
+    int[] numbers = {1, 3, 6, 4, 2};
+    int r = getMissingNumber(numbers);
     System.out.println(r);
+  }
+
+  public static int getMissingNumber(int[] a) {
+    int x1 = a[0];
+    int x2 = 1;
+    int size = a.length;
+    // For xor of all the elements in array
+    for (int i = 1; i < size; i++)
+      x1 = x1 ^ a[i];
+
+    // For xor of all the elements from 1 to n+1
+    for (int i = 2; i <= size + 1; i++)
+      x2 = x2 ^ i;
+
+    return (x1 ^ x2);
   }
 
   public static int getMissingNo(int[] numbers) {
