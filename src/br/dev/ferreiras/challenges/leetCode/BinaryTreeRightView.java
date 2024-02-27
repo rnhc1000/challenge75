@@ -14,25 +14,9 @@ import java.util.List;
  * Input: root = []
  * Output: []
  */
+
 public class BinaryTreeRightView {
-  static class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
 
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-      this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
   public List<Integer> rightSideView(TreeNode root) {
     List<Integer> result = new ArrayList<Integer>();
     // Call the recursive rightView function to populate the
@@ -52,7 +36,7 @@ public class BinaryTreeRightView {
     // visiting the rightmost node at this depth for the first time
     // So, add the current node's value to the result list for the right side view
     if(currentDepth == result.size()){
-      result.add(currentNode.val);
+      result.add(currentNode.value);
     }
 
     // Recursively call the rightSide function on the right and left subtrees,
