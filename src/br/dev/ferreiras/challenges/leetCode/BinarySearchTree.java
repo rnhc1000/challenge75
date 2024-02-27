@@ -10,30 +10,14 @@ package br.dev.ferreiras.challenges.leetCode;
  * Output: []
  */
 public class BinarySearchTree {
-  static class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
 
-    TreeNode() {
-    }
-    TreeNode(int val) {
-      this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
 
   public TreeNode searchBST(TreeNode root, int val) {
     if (root == null)
       return null;
-    if (root.val == val) return root;
+    if (root.value == val) return root;
     TreeNode bst = null;
-    if (root.val > val) {
+    if (root.value > val) {
       bst = searchBST(root.left, val);
     } else {
       bst = searchBST(root.right, val);
