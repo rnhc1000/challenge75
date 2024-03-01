@@ -30,8 +30,8 @@ public class RecursionTypes {
     int n = 4;
     int acc  = 1;
     int response = headFatorial(n);
-    System.out.println(response);
-    response = factorial(4);
+//    System.out.println(response);
+    response = fatorial(4, 1);
     System.out.println(response);
   }
   public static int fatorial(int n, int accumulator) {
@@ -42,11 +42,11 @@ public class RecursionTypes {
     return fatorial(n-1, n * accumulator);
   }
 
-  public static int factorial(int n) {
+  public static int fatorial(int n) {
     if (n == 1) {
       return n;
     }
-    return n * factorial(n-1);
+    return n * fatorial(n-1);
   }
 
   public static int headFatorial(int n) {
