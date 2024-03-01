@@ -10,7 +10,7 @@ public class HashTable {
   private Integer size = 7;
 
   // Array of pointers to Nodes
-  private Node[] dataMap;
+  private final Node[] dataMap;
 
   public HashTable() {
     dataMap = new Node[size];
