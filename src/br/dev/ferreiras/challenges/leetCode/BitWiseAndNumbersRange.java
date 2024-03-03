@@ -27,7 +27,6 @@ public class BitWiseAndNumbersRange {
       right= right >> 1;
       response++;
     }
-    return left <<response ;
+    return left << response ;
   }
-
 }
