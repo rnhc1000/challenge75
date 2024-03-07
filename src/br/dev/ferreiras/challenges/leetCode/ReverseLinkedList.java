@@ -18,22 +18,7 @@ package br.dev.ferreiras.challenges.leetCode;
  * Output: [5,4,3,2,1]
  */
 
-class ListNode {
-  int val;
-  ListNode next;
 
-  ListNode() {
-  }
-
-  ListNode(int val) {
-    this.val = val;
-  }
-
-  ListNode(int val, ListNode next) {
-    this.val = val;
-    this.next = next;
-  }
-}
 
 public class ReverseLinkedList {
 
