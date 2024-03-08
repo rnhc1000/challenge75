@@ -40,6 +40,15 @@ Play token1 (200) face-up, reducing power to 300 and increasing score to 1.
 Play token2 (300) face-up, reducing power to 0 and increasing score to 2.
 The maximum score achievable is 2.
  */
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
+
 public class BagOfTokens {
   public static void main(String[] args) {
     int[] tokens = {200, 100, 300, 400};
@@ -55,21 +64,27 @@ public class BagOfTokens {
     int rightPointer = size - 1;
     int leftPointer = 0;
     int currentScore = 0, maximumScore = 0;
+
     while (leftPointer <= rightPointer) {
+
       if (power >= tokens[leftPointer]) {
+
         power = power - tokens[leftPointer];
         currentScore++;
         leftPointer++;
         maximumScore = Math.max(maximumScore, currentScore);
+
       } else if (currentScore > 0) {
+
         power = power + tokens[rightPointer];
         currentScore--;
         rightPointer--;
+
       } else {
         break;
       }
     }
+
     return maximumScore;
   }
-
 }

@@ -60,9 +60,18 @@ The winner will go to the end of the queue for the next round.
 We keep doing this until one queue is empty which means there are no
 more senators on the team.
  */
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
+
 public class Dota2Senate {
   public static void main(String[] args) {
-    String senate = "DRR";
+    String senate = "RDD";
     String response = Dota2Senate.predictPartyVictory(senate);
     System.out.println(response);
   }

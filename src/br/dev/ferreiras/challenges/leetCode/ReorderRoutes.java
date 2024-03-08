@@ -1,5 +1,5 @@
 package br.dev.ferreiras.challenges.leetCode;
-/**
+/*
  * There are n cities numbered from 0 to n - 1 and n - 1 roads such that there is
  * only one way to travel between two different cities (this network form a tree).
  * Last year, The ministry of transport decided to orient the roads in one direction
@@ -65,7 +65,7 @@ public class ReorderRoutes {
     }
 
     int counter = 0;
-    int visited[] = new int[n];
+    int[] visited = new int[n];
     Queue<Integer> queue = new LinkedList<>();
     queue.add(0);
     visited[0] = 1;
@@ -80,6 +80,7 @@ public class ReorderRoutes {
         }
       }
     }
+    
     return counter;
   }
 }

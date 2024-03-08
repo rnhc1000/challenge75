@@ -26,6 +26,15 @@ package br.dev.ferreiras.challenges.leetCode;
  */
 // Class containing left and right child
 // of current node and key value
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
+
 class BinaryNode {
   int key;
   BinaryNode left, right;

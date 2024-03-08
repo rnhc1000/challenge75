@@ -35,7 +35,7 @@ The resulting array is [1,2,3,4], which is continuous.
  */
 public class MakeArrayContinuous {
   public static void main(String[] args) {
-    int[] nums = {1,10,100,1000};
+    int[] nums = {1,2,3,5,6};
     int response = minOperations(nums);
     System.out.println(response);
   }
@@ -45,7 +45,6 @@ public class MakeArrayContinuous {
     int size = nums.length;
     int newSize = 1;
     Arrays.sort(nums);
-    List<Integer> noDuplicates = new ArrayList<>();
     for (int i = 1; i < size; ++i) {
       if (nums[i] != nums[i - 1]) {
         nums[newSize++] = nums[i];
@@ -64,7 +63,6 @@ public class MakeArrayContinuous {
 
 
     System.out.println("Min -> " + ops);
-    System.out.println(noDuplicates);
     /*
     All elements in nums are unique.
 The difference between the maximum element and the minimum element in nums equals nums.length - 1.
