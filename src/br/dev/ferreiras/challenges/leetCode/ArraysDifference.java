@@ -59,31 +59,42 @@ public class ArraysDifference {
   public static void main(String[] args) {
     int[] nums1 = {1, 2, 3, 4};
     int[] nums2 = {1, 4, 5, 6};
+
     List<List<Integer>> response = findDifference(nums1, nums2);
+
     for (List<Integer> list : response) {
       System.out.println(list);
     }
+
   }
 
   public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
     Set<Integer> setOne = new HashSet<>();
     Set<Integer> setTwo = new HashSet<>();
+
     List<Integer> diffSetOne = new ArrayList<>();
     List<Integer> diffSetTwo = new ArrayList<>();
 
     for (int num : nums1) setOne.add(num);
+
     for (int num : nums2) {
+
       setTwo.add(num);
+
       if(setOne.add(num)) {
         diffSetTwo.add(num);
       }
+
     }
 
     for (int num : nums1) {
+
       if(setTwo.add(num)) {
         diffSetOne.add(num);
       }
+
     }
+
     return List.of(diffSetOne, diffSetTwo);
   }
   public static List<List<Integer>> findDifferenceZero(int[] nums1, int[] nums2) {
@@ -98,11 +109,13 @@ public class ArraysDifference {
     int sizeTwo = nums2.length;
 
     for (int k : nums1) {
+
       for (int i : nums2) {
         if (k == i) {
           toExclude.add(k);
         }
       }
+
     }
 
     for (int exclude : toExclude) {
@@ -142,44 +155,63 @@ public class ArraysDifference {
         dif1.add(num);
       }
     }
+
     return List.of(dif1, dif2);
   }
 
     public static List<List<Integer>> findDifferencesBoolean(int[] nums1, int[] nums2){
       Set<Integer> set1 = new HashSet<>();
       Set<Integer> set2 = new HashSet<>();
+
       ArrayList<Integer> diff1 = new ArrayList<>();
       ArrayList<Integer> diff2 = new ArrayList<>();
+
       for (int i : nums1) {
+
         set1.add(i);
+
       }
       for (int i : nums2) {
+
         set2.add(i);
+
         if (set1.add(i)) {
           diff2.add(i);
         }
+
       }
       for (int i : nums1) {
+
         if (set2.add(i)) {
           diff1.add(i);
         }
+
       }
+
       return List.of(diff1, diff2);
     }
 
     public static List<List<Integer>> anotherFindDifferences(int[] nums1, int[] nums2) {
       Set<Integer> set1 = new HashSet<>();
       Set<Integer> set2 = new HashSet<>();
+
       for (int num : nums1) {
+
         set1.add(num);
+
       }
+
       for (int num : nums2) {
+
         set2.add(num);
+
       }
       List<Integer> diff1 = new ArrayList<>(set1);
       diff1.removeAll(set2);
+
       List<Integer> diff2 = new ArrayList<>(set2);
       diff2.removeAll(set1);
+
       return List.of(diff1, diff2);
     }
   }

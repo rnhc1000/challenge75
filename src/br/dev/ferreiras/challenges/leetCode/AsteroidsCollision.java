@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * We are given an array asteroids of integers representing asteroids in a row.
  * For each asteroid, the absolute value represents its size, and the sign represents
  * its direction (positive meaning right, negative meaning left).
@@ -23,19 +23,29 @@ package br.dev.ferreiras.challenges.leetCode;
  * Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.
  */
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
+
+@ClassPreamble (
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 
 public class AsteroidsCollision {
   public static void main(String[] args) {
     int[] asteroids = {5, 10, -5};
-    int[] response = asteroidsCollision(asteroids);
+    List<Integer> response = asteroidsCollision(asteroids);
     System.out.println(response);
   }
 
-  public static List<Integer> asteroidCollision(int[] asteroids) {
-    Stack<Integer> stack = new Stack<>();
+  public static List<Integer> asteroidsCollision(int[] asteroids) {
+    Deque<Integer> stack = new ArrayDeque<>();
     int count = 0, size = asteroids.length;
     for (int i = 0; i < size - 1; i++) {
       if (asteroids[i] > 0) {
@@ -47,12 +57,10 @@ public class AsteroidsCollision {
         stack.pop();
       }
     }
+
     return new ArrayList<>(stack);
   }
-
-  public static int[] asteroidsCollision(int[] asteroids) {
-    int[] response = new int[]{};
-    return response;
-  }
 }
+
+
 

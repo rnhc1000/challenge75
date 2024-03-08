@@ -18,7 +18,14 @@ package br.dev.ferreiras.challenges.leetCode;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 public class BinaryTreeDiameter {
   public static int diameterOfBinaryTree(TreeNode root) {
     List<Integer> right = rightSideView(root);

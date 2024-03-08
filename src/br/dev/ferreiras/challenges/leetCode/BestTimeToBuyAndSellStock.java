@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * You are given an array prices where prices[i] is the price of a given stock on
  * the ith day, and an integer fee representing a transaction fee.
  * Find the maximum profit you can achieve. You may complete as many transactions
@@ -24,6 +24,14 @@ package br.dev.ferreiras.challenges.leetCode;
  * prices = [1,3,7,5,10,3], fee = 3
  * Output: 6
  */
+@ClassPreamble(
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 public class BestTimeToBuyAndSellStock {
   public static void main(String[] args) {
     int[] prices = {1, 3, 2, 8, 4, 9};
@@ -37,13 +45,17 @@ public class BestTimeToBuyAndSellStock {
     int size = prices.length;
     if(size == 0) return 0;
     int cost = prices[0];
-    int maxProfit = 0;
     int sale = Integer.MIN_VALUE;
-    for(int i = 1; i < size; i++){
+    int maxProfit = 0;
+
+    for(int i = 1; i < size; i++) {
+
       cost = Math.min(cost, prices[i] - maxProfit);
       sale = Math.max(maxProfit, prices[i] - cost - fee);
       maxProfit = sale;
+
     }
+
     return maxProfit;
   }
 }
