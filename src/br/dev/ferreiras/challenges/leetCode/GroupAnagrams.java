@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
+/*
  * You have been given an array of strings, where each string may contain
  * only lowercase English letters.
  * You need to write a method groupAnagrams(String[] strings) that groups
@@ -36,7 +36,7 @@ public class GroupAnagrams {
     }
   }
 
-  public static List<List<String>> groupAnagramx(String[] strings) {
+  public static List<List<String>> groupingAnagrams(String[] strings) {
     int size = strings.length;
     List<List<String>> response = new ArrayList<>();
     Map<String, Integer> dictionary = new HashMap<>();
