@@ -1,6 +1,8 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Given an array nums containing n distinct numbers in the range [0, n],
@@ -29,20 +31,21 @@ import java.util.*;
  * In this approach, you use bitwise XOR operation to find the missing number.
  * XOR operation on a number with itself results in 0. So, if you XOR all the numbers
  * from 0 to n and all the numbers in the array, the result will be the missing number.
- *
+ * <p>
  * Initialize missing to 0.
  * Iterate over the array and XOR each number with missing.
  * After the iteration, the value in missing will be the missing number.
  * Complexity
  * ⏱️ Time Complexity: O(n) - for XORing all the numbers
- *
+ * <p>
  * 🚀 Space Complexity: O(1)
  */
 public class MissingNumber {
 
   public static void main(String[] args) {
-    int[] numbers = {9,6,4,2,3,5,7,0,1};
-    int r = missingNumbers(numbers);
+    int[] numbers = {9, 6, 4, 2, 3, 5, 7, 1};
+    int n = numbers.length;
+    int r = missingOneNumber(numbers, n);
     System.out.println(r);
   }
 
@@ -53,6 +56,7 @@ public class MissingNumber {
     }
     return miss;
   }
+
   public static int missingNumber(int[] nums) {
     Arrays.sort(nums);
     int size = nums.length;
@@ -67,19 +71,36 @@ public class MissingNumber {
     }
     return num;
   }
+
+  //1,N -> range for teh code below
+  public static int missingOneNumber(int[] numbers, int n) {
+    int i;
+    int[] temp = new int[n+1];
+    for (int j = 0; j < n; j++) {
+      temp[numbers[j] - 1] = 1;
+    }
+    int response = 0;
+    for (int j = 0; j <= n; j++) {
+      if (temp[j] == 0) {
+        response = j + 1;
+      }
+    }
+    return response;
+  }
+
   public static int missingNumbers(int[] numbers) {
     int missing = 0;
     Set<Integer> set = new HashSet<>();
 
-    for (int i=0; i< numbers.length; i++) {
+    for (int i = 0; i < numbers.length; i++) {
       set.add(numbers[i]);
     }
 
-    for (int i=0; i<numbers.length; i++) {
-      if(!set.contains(i)) {
-          missing = i;
+    for (int i = 0; i < numbers.length; i++) {
+      if (!set.contains(i)) {
+        missing = i;
       }
     }
-      return missing;
+    return missing;
   }
 }
