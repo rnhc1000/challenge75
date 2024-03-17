@@ -39,11 +39,12 @@ import java.util.*;
 public class GreatestCommonDivisorTraversal {
 
   public static void main(String[] args) {
-    int[] numbers = {4,3,12,8};
+    int[] numbers = {4, 3, 12, 8};
     boolean r = canTraverseAllPairs(numbers);
     System.out.println(r);
 
   }
+
   public static List<Integer> getFactors(int N) {
 
     List<Integer> factors = new ArrayList<Integer>();
@@ -65,8 +66,10 @@ public class GreatestCommonDivisorTraversal {
     return factors;
   }
 
-  public static void dfs(int currentNode, Map<Integer, List<Integer>> adjacentList,
-                                 Set<Integer> visitedSet) {
+  public static void dfs(
+          int currentNode,
+          Map<Integer, List<Integer>> adjacentList,
+          Set<Integer> visitedSet) {
 
     visitedSet.add(currentNode);
 
