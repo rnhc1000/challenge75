@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * Time Complexity:
  * The time complexity of the sliding window technique is usually linear or close to linear, O(n),
  * where n is the size of the input data structure (e.g., array or string).
@@ -9,7 +9,7 @@ package br.dev.ferreiras.challenges.leetCode;
  * The space complexity of the sliding window technique is generally constant, O(1), because you’re
  * maintaining a fixed-size window and a few additional variables to perform calculations or store
  * intermediate results.
- * The amount of extra memory used doesn’t grow with the input size; it remains constant regardless
+ * The amount of extra memory used does not grow with the input size; it remains constant regardless
  * of the input size.
  * Problems Solved by this technique:
  * Maximum/Minimum Subarray Sum:
