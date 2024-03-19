@@ -7,7 +7,8 @@ package br.dev.ferreiras.challenges.leetCode;
  * xstart and xend. You do not know the exact y-coordinates of the balloons.
  * Arrows can be shot up directly vertically (in the positive y-direction) from different
  * points along the x-axis. A balloon with xstart and xend is burst by an arrow shot at
- * x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
+ * x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot.
+ * A shot arrow keeps traveling up infinitely, bursting any balloons in its path.
  * Given the array points, return the minimum number of arrows that must be shot to burst all balloons.
  * Example 1:
  * Input: points = [[10,16],[2,8],[1,6],[7,12]]
@@ -27,7 +28,7 @@ package br.dev.ferreiras.challenges.leetCode;
  * - Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
  */
 import java.util.Arrays;
-public class BurstBalloons {
+public class ArrowsToBurstBalloons {
   public static void main(String[] args) {
     int[][] balloons = {
             {10, 16},
