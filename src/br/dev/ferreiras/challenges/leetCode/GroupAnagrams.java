@@ -27,10 +27,21 @@ import java.util.Map;
  * [triangle, integral]
  * [garden, ranged]
  */
+
+
+
 public class GroupAnagrams {
   public static void main(String[] args) {
-    String[] s = {"listen", "silent", "triangle", "integral", "garden", "ranged"};
+    String[] s = {
+            "listen",
+            "silent",
+            "triangle",
+            "integral",
+            "garden",
+            "ranged"
+    };
     List<List<String>> l = groupAnagrams(s);
+
     for (List<String> lx : l) {
       System.out.println(lx);
     }
