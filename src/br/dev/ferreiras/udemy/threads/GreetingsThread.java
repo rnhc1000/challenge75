@@ -21,7 +21,7 @@ public class GreetingsThread {
   public static void main(String... args){
     Greetings hello = new Greetings();
     hello.start();
-    Greetings everybody = new Greetings();
-    everybody.start();
+    int a = 10;
+     a = 1 >>> a;
   }
 }
