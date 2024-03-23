@@ -54,8 +54,21 @@ public class TaskScheduler {
 
   public static void main(String[] args) {
     char[] tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
+    char[] alphabet = {
+            'A','B','C','D','E',
+            'F','G','H','I','J',
+            'K','L','M','N','O',
+            'P','Q','R','S','T',
+            'U','V','W','X','Y',
+            'Z','A','B', 'Z'
+    };
     int n = 2;
 
+    int[] frequency = new int[26];
+    for (char task : alphabet) {
+      frequency[task - 'A']++;
+    }
+    System.out.println(Arrays.toString(frequency));
     int r = TaskScheduler.leastInterval(tasks, n);
     System.out.println(r);
 
