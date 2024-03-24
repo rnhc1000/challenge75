@@ -53,7 +53,7 @@ public class Heap {
     return maxValue;
   }
 
-  public void sinkDownn(Integer index) {
+  public void sinkDow(Integer index) {
     int maxIndex = index;
     while(true) {
       int leftIndex = leftChild(index);

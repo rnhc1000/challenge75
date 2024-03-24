@@ -45,14 +45,12 @@ public class BestTimeToBuyAndSellStock {
     int size = prices.length;
     if(size == 0) return 0;
     int cost = prices[0];
-    int sale = Integer.MIN_VALUE;
     int maxProfit = 0;
 
     for(int i = 1; i < size; i++) {
 
-      cost = Math.min(cost, prices[i] - maxProfit);
-      sale = Math.max(maxProfit, prices[i] - cost - fee);
-      maxProfit = sale;
+      cost =      Math.min(cost, prices[i] - maxProfit);
+      maxProfit = Math.max(maxProfit, prices[i] - cost - fee);
 
     }
 

@@ -35,6 +35,7 @@ public class HashTable {
       hash = (hash + asciiValue * 37) % dataMap.length;
       System.out.println("Hash: " + hash + " base: " + asciiValue);
     }
+
     return hash;
   }
 
@@ -59,6 +60,7 @@ public class HashTable {
       if (temp.getKey().equals(key)) return temp.getValue();
       temp = temp.next;
     }
+
     return 0;
   }
 
@@ -71,6 +73,7 @@ public class HashTable {
         temp = temp.next;
       }
     }
+
     return allKeys;
   }
 
@@ -112,6 +115,7 @@ public class HashTable {
         list.add(entry.getKey());
       }
     }
+
     return list;
   }
 }

@@ -45,6 +45,7 @@ public class SumTriplets {
         }
       }
     }
+
     return triplets;
   }
 }
