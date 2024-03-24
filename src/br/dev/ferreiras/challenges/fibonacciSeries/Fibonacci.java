@@ -30,7 +30,11 @@ public class Fibonacci {
   }
 
   public static List<Long> fibonacciStream(long n) {
-    return Stream.iterate(new long[]{0L,1L}, p -> new long[]{p[1], p[0] + p[1]}).map(p -> p[0]).limit(n).toList();
+    return Stream
+            .iterate(new long[]{0L,1L}, p -> new long[]{p[1], p[0] + p[1]})
+            .map(p -> p[0])
+            .limit(n)
+            .toList();
   }
   public static int fibonacci(int n) {
     if (n <= 1) return n;

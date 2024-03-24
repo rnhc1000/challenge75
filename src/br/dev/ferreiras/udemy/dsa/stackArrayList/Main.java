@@ -63,9 +63,7 @@ public class Main {
       size--;
     }
 
-    if (myStack.size() != 0) return false;
-
-    return true;
+    return myStack.isEmpty();
   }
 
   public static void sortStack(Stack<Integer> st) {

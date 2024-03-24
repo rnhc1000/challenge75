@@ -22,33 +22,34 @@ public class LinkedListChallenge {
     LinkedList<Integer> response = amazonChallenge(linkedList);
     System.out.println(response);
   }
+
   public static LinkedList<Integer> amazonChallenge(LinkedList<Integer> amazon) {
     LinkedList<Integer> sumToZero = new LinkedList<>();
     int size = amazon.size();
-    int left = 0;
-    int right = size - 1;
-    int next = 1;
-    int sum = 0;
-    int count = 0;
-    while (right >= 0) {
-      sum = amazon.get(left) + amazon.get(next);
-      if (sum != 0) {
-        next++;
-        sum += amazon.get(next);
-        count++;
-      }
-      if (sum == 0) {
-        count++;
-        while (count >= 0) {
-          amazon.remove(left);
-          count--;
+    int left = 0, right = size - 1;
+    int next = 1, sum = 0, count = 1;
+
+    for (Integer element : amazon) {
+      sum+=element;
+      while (right >= 0) {
+
+        if (sum == 0) {
+
+          while (count > 0) {
+            sumToZero.add(amazon.get(left));
+            left++;
+            count--;
+          }
+
+        } else {
+          next++;
+          count++;
+          sum += amazon.get(next);
         }
-        right = amazon.size();
+        right--;
+        left++;
       }
-      count = 0;
-      next = 1;
-      right--;
     }
-    return amazon;
+    return sumToZero;
   }
 }

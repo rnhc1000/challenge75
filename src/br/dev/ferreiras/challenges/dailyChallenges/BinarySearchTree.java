@@ -44,7 +44,7 @@ public class BinarySearchTree {
     Node temp = root;
 
     while (true) {
-      if (newNode.value == temp.value) return false;
+      if (newNode.value.equals(temp.value)) return false;
       if (newNode.value < temp.value) {
         if (temp.left == null) {
           temp.left = newNode;

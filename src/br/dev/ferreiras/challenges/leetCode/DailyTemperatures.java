@@ -33,22 +33,39 @@ public class DailyTemperatures {
     for (int days : waitingLine) {
       System.out.print(" " + days);
     }
+    System.out.println();
+
+    String r = decimalToBinary(1957);
+    System.out.println(r);
+
   }
 
   public static int[] dailyTemperatures(int[] temperatures) {
     int size = temperatures.length;
     int[] response = new int[size];
-    Queue<Integer>q = new PriorityQueue<>();
-    for (int right = size-1; right>= 0; right--) {
-      while(!q.isEmpty() && temperatures[right] >= temperatures[q.peek()]) {
+    Queue<Integer> q = new PriorityQueue<>();
+    for (int right = size - 1; right >= 0; right--) {
+      while (!q.isEmpty() && temperatures[right] >= temperatures[q.peek()]) {
         q.remove();
       }
-      if(!q.isEmpty()) {
-        response[right] = q.peek()-right;
+      if (!q.isEmpty()) {
+        response[right] = q.peek() - right;
       }
       q.add(right);
     }
     return response;
+  }
+
+  public static String decimalToBinary(int n) {
+    StringBuilder b = new StringBuilder();
+    while (n >= 1) {
+      int r = n % 2;
+//      System.out.print(" " + r);
+      b.insert(0, r);
+      n /= 2;
+    }
+
+    return b.toString();
   }
 }
 
