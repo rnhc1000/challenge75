@@ -36,7 +36,6 @@ public class SubArrayProductLessThanK {
   public static int numSubArrayProductLessThanK(int[] nums, int k) {
     int size = nums.length;
     int left = 0, right = 0, count = 0,  product = 1;
-    List<Integer> list = new LinkedList<>();
     for (; right< size; right++) {
       product *= nums[right];
       while (product >= k && left <= right) {
