@@ -8,6 +8,7 @@ package br.dev.ferreiras.challenges.hackerRank;
  *
  **/
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,9 +45,7 @@ public class RegexLinksHtml {
       }
     }
 
-    for (int i = 0; i < n; i++) {
-      input[i] = links[0] + names[0].replace(">", ",");
-    }
+    Arrays.fill(input, links[0] + names[0].replace(">", ","));
 
     StringBuilder sb = new StringBuilder();
     String sx = sb.append(links[0]).toString();

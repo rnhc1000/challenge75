@@ -48,6 +48,7 @@ public class SlidingWindows {
         maximumOfEachArray[i] = maxOfEachArray;
       }
     }
+
     return maximumOfEachArray;
   }
 
@@ -64,6 +65,7 @@ public class SlidingWindows {
       incrementOnNumbers++;
       iteratorOfNumbers = incrementOnNumbers;
     }
+
     return slidingWindow;
   }
 }

@@ -23,8 +23,8 @@ import java.util.Set;
  */
 public class IsomorphicStrings {
   public static void main(String[] args) {
-    String s = "AAB";
-    String t = "XYZ";
+    String s = "EGG";
+    String t = "ADD";
     if (isIsoMorphic(s, t)) {
       System.out.print(s + " and " + t + " are isomorphic\n");
     } else {
