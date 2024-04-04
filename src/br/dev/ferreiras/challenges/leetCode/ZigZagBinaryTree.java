@@ -1,8 +1,8 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * You are given the root of a binary tree.
- * A ZigZag path for a binary tree is defined as follow:
+ * A ZigZag path for a binary tree is defined as follows:
  * Choose any node in the binary tree and a direction (right or left).
  * If the current direction is right, move to the right child of the current node;
  * otherwise, move to the left child.
@@ -14,11 +14,13 @@ package br.dev.ferreiras.challenges.leetCode;
  * Input:
  * root = [1,null,1,1,1,null,null,1,1,null,1,null,null,null,1]
  * Output: 3
- * Explanation: Longest ZigZag path in blue nodes (right -> left -> right)
+ * Explanation:
+ * Longest ZigZag path in blue nodes (right -> left -> right)
  * Input:
  * root = [1,1,1,null,1,null,null,1,1,null,1]
  * Output: 4
- * Explanation: Longest ZigZag path in blue nodes (left -> right -> left -> right).
+ * Explanation:
+ * Longest ZigZag path in blue nodes (left -> right -> left -> right).
  */
 public class ZigZagBinaryTree {
   static class TreeNode {
