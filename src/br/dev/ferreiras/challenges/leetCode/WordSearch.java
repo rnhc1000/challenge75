@@ -74,7 +74,7 @@ public class WordSearch {
             || helper(i, j - 1, pos + 1, s, board, dp, n, m, l))
       return true;
     dp[i][j] = false;
-    
+
     return false;
   }
 }
