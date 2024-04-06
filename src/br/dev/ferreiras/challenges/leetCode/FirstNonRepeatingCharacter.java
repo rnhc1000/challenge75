@@ -1,9 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * You have been given a string of lowercase letters.
@@ -18,7 +15,7 @@ import java.util.Map;
  */
 public class FirstNonRepeatingCharacter {
   public static void main(String[] args) {
-    String s = "leetcode";
+    String s = "cocada";
     char r = firstNonRepeatingChar(s);
     System.out.println(r);
 
@@ -34,7 +31,7 @@ public class FirstNonRepeatingCharacter {
         map.put(x, map.getOrDefault((x), 0) + 1);
       }
     }
-
+    System.out.println(map);
     List<Integer> list = new ArrayList<>(map.values());
     System.out.println(list);
     for (Map.Entry<Character, Integer> entry : map.entrySet()) {

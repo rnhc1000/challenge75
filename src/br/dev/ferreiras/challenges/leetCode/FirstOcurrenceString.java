@@ -26,7 +26,7 @@ haystack and needle consist of only lowercase English characters.
  */
 public class FirstOcurrenceString {
   public static void main(String[] args) {
-    String haystack = "sadbutsad", needle = "sad";
+    String haystack = "dasbutdassad", needle = "sad";
     int r = strStr(haystack, needle);
     System.out.println(r);
   }
