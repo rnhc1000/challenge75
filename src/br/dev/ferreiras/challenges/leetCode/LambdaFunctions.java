@@ -16,8 +16,9 @@ public class LambdaFunctions {
     System.out.print("Input quantity of numbers: ");
     int number  = input.nextInt();
     input.nextLine();
-    List<Integer> guess = magicNumbers(number);
-    System.out.println("Guess suggested is: " + guess);
+//    List<Integer> guess = magicNumbers(number);
+    int[] guess = magicNumbers(number);
+    System.out.println("Guess suggested is: " + Arrays.toString(guess));
     input.close();
   }
 
@@ -27,7 +28,7 @@ public class LambdaFunctions {
     return numbersMagic;
   };
 
-  public static List<Integer> magicNumbers(int magicNumbers) {
+  public static int[] magicNumbers(int magicNumbers) {
     switch (magicNumbers) {
       case 6 -> seed = 60;
       case 15 -> seed = 80;
@@ -51,6 +52,6 @@ public class LambdaFunctions {
         list.add(temp);
       }
     }
-    return list.stream().sorted().toList();
+    return list.stream().mapToInt(x -> x).toArray();
   }
 }
