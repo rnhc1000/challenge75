@@ -21,21 +21,18 @@ public class KadaneAlgo {
     int[] v = new int[]{};
     if (numbers.length == 0) return v;
     int maxSum = Integer.MIN_VALUE;
-    int currentSum = 0;
-    int maxLeft = 0;
-    int maxRight = 0;
-    int left = 0;
+    int currentSum = 0, maxLeft = 0, maxRight = 0, left = 0;
     int[] max = new int[2];
-    for (int right : numbers) {
+    for (int number : numbers) {
       if (currentSum < 0) {
         currentSum = 0;
-        left = right;
+        left = number;
       }
-      currentSum += right;
+      currentSum += number;
       if (currentSum > maxSum) {
         maxSum = currentSum;
         maxLeft = left;
-        maxRight = right;
+        maxRight = number;
       }
       max[0] = maxLeft;
       max[1] = maxRight;

@@ -48,11 +48,6 @@ public class DuplicatesExist {
     for (int i : numbers) {
       noDuplicates.add(i);
     }
-    if (size != noDuplicates.size()) {
-      duplicates = true;
-    } else {
-      return false;
-    }
-    return duplicates;
+    return size != noDuplicates.size();
   }
 }
