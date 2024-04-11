@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * Tree Traversal algorithms can be classified broadly into two categories:
  * Depth-First Search (DFS) Algorithms
  * Breadth-First Search (BFS) Algorithms
@@ -23,9 +23,9 @@ package br.dev.ferreiras.challenges.leetCode;
  * Here, the traversal is left child – right child – root.
  * It means that the left child has traversed first then the right child and finally
  * its root node.
+ * Class containing left and right child of current node and key value
  */
-// Class containing left and right child
-// of current node and key value
+
 @ClassPreamble(
         author = "Ricardo Ferreira",
         date = "10/01/2024",

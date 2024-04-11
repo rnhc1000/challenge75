@@ -86,7 +86,7 @@ public class RevealCardsAscendingOrder {
     }
     //
     // we can either create a new array or change the existing since
-    // we dont need it right??but it is not recommended
+    // we don't need it right?? but it is not recommended
 
     for (int i = 0; i < size; i++) deck[i] = stack.removeFirst();
     return deck;
