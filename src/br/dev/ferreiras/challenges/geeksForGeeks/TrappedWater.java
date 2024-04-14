@@ -92,11 +92,7 @@ public class TrappedWater {
     return response;
   }
   public static int trapped(int[] arr, int n) {
-    int response = 0;
-    int left = 0;
-    int right = 0;
-    int i = 0;
-    int j = arr.length - 1;
+    int response = 0, left = 0, right = 0, i = 0, j = arr.length-1;
     while (i < j) {
       left =  Math.max(left, arr[i]);
       right = Math.max(right,arr[j]);

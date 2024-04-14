@@ -51,8 +51,11 @@ public class FrogJumpTheRiver {
   }
   public static boolean canCross(int[] stones) {
     Map<Integer, Set<Integer>> map = new HashMap<>();
+
     for (int stone : stones) {
+
       map.put(stone, new HashSet<>());
+
     }
 
     map.get(0).add(0);
@@ -60,8 +63,10 @@ public class FrogJumpTheRiver {
     for (int stone : stones) {
       for (int jumps : map.get(stone)) {
         for (int jump : new int[] {jumps - 1, jumps, jumps + 1}) {
+
           if (jump > 0 && map.containsKey(stone + jump)) {
             map.get(stone + jump).add(jump);
+
           }
         }
       }
