@@ -97,15 +97,15 @@ public class MaximumRectangle {
   }
 
   public static int getMaximumArea(int[] height) {
-    Deque<Integer> stck = new ArrayDeque<>();
+    Deque<Integer> stack = new ArrayDeque<>();
     int area = 0;
     for (int i = 0; i <= height.length; i++) {
-      while (!stck.isEmpty() && (i == height.length || height[stck.peek()] >= height[i])) {
-        int newHeight = height[stck.pop()];
-        int width = stck.isEmpty() ? i : i - stck.peek() - 1;
+      while (!stack.isEmpty() && (i == height.length || height[stack.peek()] >= height[i])) {
+        int newHeight = height[stack.pop()];
+        int width = stack.isEmpty() ? i : i - stack.peek() - 1;
         area = Math.max(area, width * newHeight);
       }
-      stck.push(i);
+      stack.push(i);
     }
     return area;
   }
