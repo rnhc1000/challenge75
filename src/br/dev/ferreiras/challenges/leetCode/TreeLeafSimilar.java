@@ -17,25 +17,8 @@ package br.dev.ferreiras.challenges.leetCode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeafSimilarTrees {
-  static class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+public class TreeLeafSimilar {
 
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-      this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
 
   public boolean leafSimilar(TreeNode root1, TreeNode root2) {
     List<Integer> listOne = new ArrayList<>();
@@ -50,7 +33,7 @@ public class LeafSimilarTrees {
       return;
     }
     if (currentNode.right == null && currentNode.left == null) {
-      list.add(currentNode.val);
+      list.add(currentNode.value);
     } else {
       traverse(currentNode.left, list);
       traverse(currentNode.right, list);
