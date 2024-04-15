@@ -81,4 +81,21 @@ public class TreeSumOfLeftLeaves {
 
     return sum;
   }
+
+  public int sumOfLeftBranches(TreeNode root) {
+    if (root == null)
+      return 0;
+
+    int sum = 0;
+
+    if (root.left != null) {
+      if (root.left.left == null && root.left.right == null)
+        sum += root.left.value;
+      else
+        sum += sumOfLeftBranches(root.left);
+    }
+    sum += sumOfLeftBranches(root.right);
+
+    return sum;
+  }
 }
