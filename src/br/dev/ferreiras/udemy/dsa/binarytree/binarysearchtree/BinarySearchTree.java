@@ -1,6 +1,5 @@
 package br.dev.ferreiras.udemy.dsa.binarytree.binarysearchtree;
 
-import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +11,25 @@ public class BinarySearchTree {
     return "BinarySearchTree{" +
             "root=" + root +
             '}';
+  }
+
+  static class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {
+    }
+
+    TreeNode(int val) {
+      this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+      this.val = val;
+      this.left = left;
+      this.right = right;
+    }
   }
 
   private Node root;
@@ -105,6 +123,38 @@ public class BinarySearchTree {
     } else {
       return recursiveContains(currentNode.right, value);
     }
+  }
+
+
+  static TreeNode newNode(int key) {
+    TreeNode temp = new TreeNode();
+    temp.val = key;
+    temp.left = temp.right = null;
+    return temp;
+  }
+
+  /*Function to find the height(depth) of the tree*/
+  public static int height(TreeNode root) {
+
+    // Initialising a variable to count the
+    // height of tree
+    Queue<TreeNode> q = new LinkedList<TreeNode>();
+    q.add(root);
+    int height = 0;
+    while (!q.isEmpty()) {
+      int size = q.size();
+      for (int i = 0; i < size; i++) {
+        TreeNode temp = q.poll();
+        if (temp.left != null) {
+          q.add(temp.left);
+        }
+        if (temp.right != null) {
+          q.add(temp.right);
+        }
+      }
+      height++;
+    }
+    return height;
   }
 
   /**

@@ -45,6 +45,6 @@ public class SortColors {
     array[i + 1] = array[right];
     array[right] = temp;
 
-    return i + 1;
+    return i + 1; // pivot position
   }
 }
