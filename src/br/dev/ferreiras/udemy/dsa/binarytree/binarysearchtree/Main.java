@@ -9,8 +9,6 @@ public class Main {
   public static void main(String[] args) {
 
     BinarySearchTree myBST = new BinarySearchTree();
-
-
     myBST.insert(47);
     myBST.insert(21);
     myBST.insert(76);
@@ -37,6 +35,7 @@ public class Main {
     System.out.println("\nBST Contains 17:");
     System.out.println(myBST.recursiveContains(17));
     System.out.println("BreadthFirstSearch");
+
     List<Integer> result = myBST.breadthFirstSearch();
     for (
             Integer i : result) {

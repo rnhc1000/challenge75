@@ -59,9 +59,7 @@ public class MaxProfit {
   }
 
   public static int maxProfit(int[] prices) {
-    int profitMax = 0;
-    int currentProfit= 0;
-    int buy = Integer.MAX_VALUE;
+    int profitMax = 0, currentProfit = 0, buy = Integer.MAX_VALUE;
     for (int price : prices) {
       buy = Math.min(buy, price);
       currentProfit = price - buy;
