@@ -54,7 +54,6 @@ public class MaxMin {
   }
 
   public static int[] findMaxMin(int[] myList) {
-    int[] response = new int[2];
     int max = Integer.MIN_VALUE;
     int min = myList[0];
 
@@ -65,8 +64,7 @@ public class MaxMin {
         min = number;
       }
     }
-    response[0] = max;
-    response[1] = min;
+
     return new int[] {max, min};
   }
 }

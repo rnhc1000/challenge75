@@ -1,70 +1,12 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/*
- * Tree Traversal algorithms can be classified broadly into two categories:
- * Depth-First Search (DFS) Algorithms
- * Breadth-First Search (BFS) Algorithms
- *
- * Tree Traversal using Depth-First Search (DFS) algorithm can be further classified
- * into three categories:
- * Preorder Traversal (current-left-right):
- * Visit the current node before visiting any nodes inside the left or right subtrees.
- * Here, the traversal is root – left child – right child. It means that the root node
- * is traversed first then its left child and finally the right child.
- *
- * Inorder Traversal (left-current-right):
- * Visit the current node after visiting all nodes inside the left subtree but before
- * visiting any node within the right subtree. Here, the traversal is left child – root –
- * right child.  It means that the left child is traversed first then its root node and
- * finally the right child.
- *
- * Postorder Traversal (left-right-current):
- * Visit the current node after visiting all the nodes of the left and right subtrees.
- * Here, the traversal is left child – right child – root.
- * It means that the left child has traversed first then the right child and finally
- * its root node.
- * Class containing left and right child of current node and key value
- */
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
-@ClassPreamble(
-        author = "Ricardo Ferreira",
-        date = "10/01/2024",
-        currentRevision = 7,
-        lastModified = "10/01/2024",
-        lastModifiedBy = "Ricardo Ferreira",
-        reviewers = {}
-)
-
-class BinaryNode {
-  int key;
-  BinaryNode left, right;
-
-  public BinaryNode(int item)
-  {
-    key = item;
-    left = right = null;
-  }
-
-  @Override
-  public String toString() {
-    return "ListBinaryNode{" +
-            "key=" + key +
-            ", left=" + left +
-            ", right=" + right +
-            '}';
-  }
-}
 public class BinaryTree {
-  // Root of Binary Tree
-  BinaryNode root;
-
-  // Constructors
-  BinaryTree(int key) {
-    root = new BinaryNode(key);
-  }
-  BinaryTree() {
-    root = null;
-  }
+  TreeNode root;
 
   @Override
   public String toString() {
@@ -73,37 +15,79 @@ public class BinaryTree {
             '}';
   }
 
-  public static void main(String[] args)
-  {
+  public BinaryTree() {
+  }
+
+  public BinaryTree(TreeNode root) {
+    this.root = root;
+  }
+
+  public static void main(String[] args) {
     BinaryTree tree = new BinaryTree();
+    tree.root = new TreeNode(1);
+    tree.root.left = new TreeNode(2);
+    tree.root.right = new TreeNode(3);
+    tree.root.left.left = new TreeNode(4);
+    tree.root.left.right = new TreeNode(5);
+    tree.root.right.left = new TreeNode(6);
+    tree.root.right.right = new TreeNode(7);
+    tree.root.left.left.left = new TreeNode(8);
+    tree.root.left.left.right = new TreeNode(9                        );
 
-    // Create root
-    tree.root = new BinaryNode(1);
-        /* Following is the tree after above statement
-           1
-          / \
-        null null
-        */
+    List<Integer> list = tree.dfsPreOrder(tree.root);
+    System.out.println(list);
+    int h = tree.heightOfTree(tree.root);
+    System.out.println(h);
+    int d = tree.diameterOfTree(tree.root);
+    System.out.println(tree.diameter);
+  }
 
-    tree.root.left = new BinaryNode(2);
-    tree.root.right = new BinaryNode(3);
-        /* 2 and 3 become left and right children of 1
-              1
-             / \
-            2   3
-           / \ / \
-       null null null null */
-    tree.root.left.left = new BinaryNode(4);
-        /* 4 becomes left child of 2
-               1
-              / \
-             2   3
-            / \ / \
-           4 null null null
-          / \
-        null null
-        */
+  List<Integer> results = new ArrayList<>();
 
-    System.out.println(tree);
+  public List<Integer> dfsPreOrder(TreeNode node) {
+    if (node == null) return new ArrayList<>();
+
+    results.add(node.value);
+    if (node.left != null) {
+      dfsPreOrder(node.left);
+    }
+    if (node.right != null) {
+      dfsPreOrder(node.right);
+    }
+
+    return results;
+  }
+
+  public int heightOfTree(TreeNode node) {
+    if (node == null) return -1;
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(node);
+    int height = 0;
+    while (!queue.isEmpty()) {
+      int size = queue.size();
+      for (int i = 0; i < size; i++) {
+        TreeNode currentNode = queue.poll();
+        assert currentNode != null;
+        if (currentNode.left != null) {
+          queue.offer(currentNode.left);
+        }
+        if (currentNode.right != null) {
+          queue.offer(currentNode.right);
+        }
+      }
+      height++;
+    }
+
+    return height;
+  }
+
+  int diameter = 0;
+  public int diameterOfTree(TreeNode node) {
+    if (node == null) return 0;
+    int leftNode = diameterOfTree(node.left);
+    int rightNode = diameterOfTree(node.right);
+    diameter = Math.max(diameter, rightNode + leftNode);
+
+    return Math.max(rightNode, leftNode) + 1;
   }
 }

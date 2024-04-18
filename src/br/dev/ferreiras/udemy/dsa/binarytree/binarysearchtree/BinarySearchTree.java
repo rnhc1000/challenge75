@@ -145,6 +145,7 @@ public class BinarySearchTree {
       int size = q.size();
       for (int i = 0; i < size; i++) {
         TreeNode temp = q.poll();
+        assert temp != null;
         if (temp.left != null) {
           q.add(temp.left);
         }

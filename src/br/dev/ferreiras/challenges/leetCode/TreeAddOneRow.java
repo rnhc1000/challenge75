@@ -29,7 +29,7 @@ public class TreeAddOneRow {
   }
 
   public TreeNode helper(TreeNode root,int val,int depth,int currentDepth){
-    if(root==null) return root;
+    if(root==null) return null;
 
     if(depth==1){
       TreeNode node=new TreeNode(val);
