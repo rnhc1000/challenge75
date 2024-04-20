@@ -1,4 +1,5 @@
 package br.dev.ferreiras.challenges.leetCode;
+
 /*
 You are given row x col grid representing a map where grid[i][j] = 1 represents land and
 grid[i][j] = 0 represents water.
@@ -49,9 +50,13 @@ Calculating Perimeter:
 Sum up all the counts from step 2 for each land cell.
 The total count represents the perimeter of the land in the grid.
  */
+/*
+ * @param {{integer}} distribution
+ * @return {int}
+ */
 public class IslandPerimeter {
   public static void main(String[] args) {
-    int [][] distribution = {
+    int[][] distribution = {
             {0, 1, 0, 0},
             {1, 1, 1, 0},
             {0, 1, 0, 0},
@@ -60,12 +65,13 @@ public class IslandPerimeter {
     int perimeter = islandPerimeter(distribution);
     System.out.println(perimeter);
   }
+
   public static int islandPerimeter(int[][] grid) {
     int m = grid.length;
     int n = grid[0].length;
     int perimeter = 0;
     for (int i = 0; i < m; i++) {
-      for (int j = 0; j <n; j++) {
+      for (int j = 0; j < n; j++) {
         if (grid[i][j] == 1) {
           if ((j > 0 && grid[i][j - 1] == 0) || j == 0)
             perimeter++;
