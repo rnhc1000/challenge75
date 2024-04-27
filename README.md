@@ -23,7 +23,7 @@ Let's dive into it!
 ## _Screenshot_
 [![](./binarySearch.png)]()
 ## _Links_
-- Live Site URL: [] 
+- Live Site URL: [https://leetcode.com/u/rferreira_757/] 
 ## _Built with_
 
  ![](https://ferreiras.dev.br/assets/images/icons/java-icon.svg)| ![](https://ferreiras.dev.br/assets/images/icons/git-scm-icon.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-intellij-idea.svg) | ![](https://ferreiras.dev.br/assets/images/icons/linux-original.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-visual-studio-code.svg)
@@ -58,5 +58,5 @@ package br.dev.ferreiras.dsa.search;
 - [https://docs.oracle.com/en/java/] Always trust and read the official documentation!
 - [https://cp-algorithms.com/]  A must stop by to tackle DSA...
 ## _Author_
-- Website - [https://ferreiras.dev.br]  
+- Website - [https://www.ferreiras.dev.br]  
 ## Acknowledgments

@@ -30,14 +30,22 @@ public class TreeBoustrophedonOrder {
 //    root.right.left = newNode(3);
 //    root.right.right = newNode(4);
     TreeNode root = newNode(0);
-    root.left = newNode(1);
-    root.right = newNode(2);
-    root.left.left = newNode(3);
-    root.left.right = newNode(4);
-    root.right.left = newNode(5);
-    root.right.right = newNode(6);
+//    root.left = newNode(1);
+//    root.right = newNode(2);
+//    root.left.left = newNode(3);
+//    root.left.right = newNode(4);
+//    root.right.left = newNode(5);
+//    root.right.right = newNode(6);
     Deque<Integer> response = boustrophedOrder(root);
+    System.out.println("ZigZag");
     System.out.println(response);
+    List<List<Integer>> list = boustrophenOrder(root);
+//    for (List<Integer> l: list) {
+//      System.out.println("List of Lists");
+//      System.out.println(l);
+//    }
+
+    System.out.println(list);
   }
 
   public static List<Integer> list = new ArrayList<>();
@@ -48,8 +56,8 @@ public class TreeBoustrophedonOrder {
     TreeNode currentNode = root;
 
 //    list.add(currentNode.value);
-    Deque<TreeNode> queue = new LinkedList<>();
-    Deque<Integer> stack = new ArrayDeque<>();
+    Deque <TreeNode> queue = new LinkedList<>();
+    Deque <Integer>  stack = new ArrayDeque<>();
     queue.add(root);
     stack.add(root.value);
     int level = 1;
@@ -86,5 +94,62 @@ public class TreeBoustrophedonOrder {
     }
 
     return stack;
+  }
+  public static List<List<Integer>> boustrophenOrder(TreeNode root) {
+
+    List<List<Integer>> lists = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
+    if (root == null) return null;
+    if (root.right == null && root.left == null) {
+//      list.add(root.value);
+//      lists.add(list);
+//      return lists;
+      return new ArrayList<>(new ArrayList<>(root.value));
+    }
+
+    TreeNode currentNode = root;
+
+//    list.add(currentNode.value);
+    Deque <TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+    list.add(root.value);
+    lists.add(list);
+    list.clear();
+    int level = 1;
+    while (!queue.isEmpty()) {
+      int size = queue.size();
+      for (int i = 0; i < size; i++) {
+        if (level % 2 == 0) {
+          currentNode = queue.pollLast();
+        } else {
+          currentNode = queue.peekFirst();
+          queue.pollFirst();
+        }
+        if (level % 2 != 0) {
+          if ((currentNode != null ? currentNode.right : null) != null) {
+            queue.add(currentNode.right);
+            list.add(currentNode.right.value);
+          }
+          if ((currentNode != null ? currentNode.left : null) != null) {
+            queue.add(currentNode.left);
+            list.add(currentNode.left.value);
+          }
+        } else  {
+          if ((currentNode != null ? currentNode.left : null) != null) {
+            queue.offerFirst(currentNode.left);
+            list.add(currentNode.left.value);
+          }
+          if ((currentNode != null ? currentNode.right : null) != null) {
+            queue.offerFirst(currentNode.right);
+            list.add(currentNode.right.value);
+          }
+        }
+      }
+      level += 1;
+      lists.add(list);
+      list.clear();
+    }
+
+    return lists;
   }
 }
