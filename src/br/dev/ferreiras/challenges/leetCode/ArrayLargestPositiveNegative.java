@@ -2,6 +2,8 @@ package br.dev.ferreiras.challenges.leetCode;
 
 import java.awt.color.ICC_Profile;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -39,31 +41,52 @@ nums[i] != 0
 public class ArrayLargestPositiveNegative {
   public static void main(String[] args) {
 //    int[] nums = {-1,10,6,7,-7,1};
-    int[] nums = {-1,2,-3,3};
-    int response = findMaxK(nums);
+    int[] nums = {-1,1,7,2,-3,3};
+    int response = findingMaxK(nums);
     System.out.println(response);
   }
   public static int findMaxK(int[] nums) {
 
     List<Integer> list = new ArrayList<>();
 
-    int max = Integer.MIN_VALUE;
+    int max = -1;
 
 
     for (int i = 0; i < nums.length; i++) {
 
       for (int j = i + 1; j < nums.length; j++) {
 
-        if (nums[i] == -nums[j])
-          list.add(nums[i]);
+        if (nums[i] == -nums[j]) {
+          list.add(Math.abs(nums[i]));
+          max = Collections.max(list);
+        }
       }
     }
 
-    for (int i : list) {
-      max = Math.max(max, i);
-    }
+//    for (int i : list) {
+//      max = Math.max(max, i);
+//    }
     System.out.println(list);
-    return Math.abs(max);
+    return max;
+  }
 
+  public static int findingMaxK(int[] nums) {
+
+    Arrays.sort(nums);
+    int left = 0, right = nums.length - 1;
+    int maxK = Integer.MIN_VALUE;
+    while (left < right) {
+      int sum = nums[left] + nums[right];
+      if (sum == 0) {
+        maxK = Math.max(maxK, nums[right]);
+        left++;
+        right--;
+      } else if (sum < 0) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+    return maxK != Integer.MIN_VALUE ? maxK : -1;  // If no such pair found
   }
 }
