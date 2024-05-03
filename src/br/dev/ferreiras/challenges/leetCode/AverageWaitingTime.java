@@ -62,6 +62,14 @@ Complexity
 Time complexity: O(n)O(n)O(n)
 Space complexity: O(1)O(1)O(1)
  */
+@ClassPreamble (
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "02/05/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 public class AverageWaitingTime {
 
   public static void main(String[] args) {

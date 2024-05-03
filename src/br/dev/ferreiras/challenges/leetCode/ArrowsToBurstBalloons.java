@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * There are some spherical balloons taped onto a flat wall that represents the XY-plane.
  * The balloons are represented as a 2D integer array points where points[i] =
  * [xstart, xend] denotes a balloon whose horizontal diameter stretches between
@@ -26,8 +26,24 @@ package br.dev.ferreiras.challenges.leetCode;
  * Explanation: The balloons can be burst by 2 arrows:
  * - Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
  * - Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
+ * Sorting by column
+ * Arrays.sort(array, (a,b) -> Integer.compare(a[col], b[col])); increasing order
+ * Arrays.sort(array, (a,b) -> Integer.compare(b[col], v[col])); descending order
  */
+
 import java.util.Arrays;
+import java.util.Comparator;
+
+
+@ClassPreamble (
+        author = "Ricardo Ferreira",
+        date = "10/01/2024",
+        currentRevision = 7,
+        lastModified = "10/01/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
+
 public class ArrowsToBurstBalloons {
   public static void main(String[] args) {
     int[][] balloons = {
@@ -37,9 +53,19 @@ public class ArrowsToBurstBalloons {
             {7, 12}
     };
 
+    String[][] strings = {
+            {"Ricardo", "Ferreira"},
+            {"Perpetua", "Costa"},
+            {"Henrique", "Camargo"},
+            {"Nathalia", "Camargo"}
+    };
+
     int response = findMinArrowShots(balloons);
     System.out.println(response);
+    handlingArraysSorting(balloons);
+    handlingArraysSorting(strings);
   }
+
 
   public static int findMinArrowShots(int[][] points) {
     if (points.length < 2)
@@ -57,4 +83,20 @@ public class ArrowsToBurstBalloons {
     }
     return arrow;
   }
+
+
+  public static void handlingArraysSorting(int[][] numbers) {
+    Arrays.sort(numbers, (b, a) -> b[1] - a[1]);
+    for (int[] number : numbers) {
+      System.out.println(Arrays.toString(number));
+    }
+  }
+  public static void handlingArraysSorting(String[][] strings) {
+
+    for (String[] string : strings) {
+      Arrays.sort(string);
+      System.out.println(Arrays.toString(string));
+    }
+  }
+
 }
