@@ -66,6 +66,10 @@ public class ArraysDifference {
       System.out.println(list);
     }
 
+    /*
+    [2, 3]
+    [5, 6]
+     */
   }
 
   public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {

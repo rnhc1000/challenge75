@@ -36,11 +36,20 @@ Constraints:
 num does not contain any leading zeros except for the zero itself.
 1 <= k <= 104
  */
+
+@ClassPreamble (
+        author = "Ricardo Ferreira",
+        date = "25/08/2023",
+        currentRevision = 7,
+        lastModified = "02/05/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 public class ArrayFormInteger {
 
   public static void main(String[] args) {
-    int[] numbers = {1,2,3,4,5,6,7,8,9,2};
-    int k = 516;
+    int[] numbers = {2,1,4,7,4,8,3,6,4};
+    int k = 34;
     System.out.println(Integer.MAX_VALUE);
     List<Integer> list = addToArrayForm(numbers, k);
     for (Integer l : list) {
@@ -51,7 +60,7 @@ public class ArrayFormInteger {
   public static List<Integer> addToArrayForm(int[] num, int k) {
     Deque<Integer> queue = new ArrayDeque<>();
     StringBuilder sb = new StringBuilder();
-
+    System.out.println((Integer.MAX_VALUE));
     for (int n : num) {
       sb.append(String.valueOf(n));
     }

@@ -22,10 +22,7 @@ public class TrappedWater {
 
   public static long trappingWater(int[] arr, int n) {
     // Your code here
-    int sum = 0;
-    int count = 0;
-    int max = Integer.MIN_VALUE;
-    int left = 0, right = 0;
+    int sum = 0, count = 0, max = Integer.MIN_VALUE, left = 0, right = 0;
     right = n - 1;
 
     for (int num : arr) {

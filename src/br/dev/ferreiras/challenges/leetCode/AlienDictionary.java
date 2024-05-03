@@ -1,5 +1,9 @@
 package br.dev.ferreiras.challenges.leetCode;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /*
 In an alien language, surprisingly, they also use English lowercase letters,
 but possibly in a different order.
@@ -39,9 +43,40 @@ Constraints:
 order.length == 26
 All characters in words[i] and order are English lowercase letters.
  */
+@ClassPreamble (
+        author = "Ricardo Ferreira",
+        date = "22/11/2023",
+        currentRevision = 1,
+        lastModified = "02/05/2024",
+        lastModifiedBy = "Ricardo Ferreira",
+        reviewers = {}
+)
 public class AlienDictionary {
-  public boolean isAlienSorted(String[] words, String order) {
+  public static void main(String[] args) {
+    String [] words = {"hello","leetcode"};
+    String order = "hlabcdefgijkmnopqrstuvwxyz";
+    /*
+    [7, 11, 0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+     */
+    boolean response = isAlienSorted(words,order);
 
+  }
+  public static boolean isAlienSorted(String[] words, String order) {
+
+    int[] position = new int[26];
+    int pos = 0;
+    char[] ch = order.toCharArray();
+    for (char c : ch) {
+      position[pos++] = c - 'a';
+    }
+    pos=0;
+    Map<Integer, Character> map = new LinkedHashMap<>();
+    for (int p : position) {
+      map.put(p, ch[pos++]);
+    }
+
+    System.out.println(Arrays.toString(position));
+    System.out.println(map);
 
     return true;
   }
