@@ -35,7 +35,9 @@ public class Anagram {
     String s1 = " The quick   brown  fox dog    jumps over the lazy dog";
     String s2 = "  brown fox quick                   the dog jumps dog the lazy over";
 
+//    boolean response = isAnagram(s1, s2);
     boolean response = validAnagram(s1, s2);
+
 
     if (response) {
       System.out.println("S1 and S2 are anagrams!");
@@ -48,16 +50,15 @@ public class Anagram {
   public static boolean isAnagram(String s1, String s2) {
 
     String regex = "\\s+";
-    s1 = s1.replaceAll(regex, "");
-    s2 = s2.replaceAll(regex, "");
+    s1 = s1.replaceAll(regex, "").toLowerCase();
+    s2 = s2.replaceAll(regex, "").toLowerCase();
     int lenStrOne = s1.length();
     int lenStrTwo = s2.length();
-
+    System.out.println(s1);
+    System.out.println(s2);
     if (lenStrOne != lenStrTwo)
       return false;
 
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
 
     char[] s1Auxiliar = s1.toCharArray();
     char[] s2Auxiliar = s2.toCharArray();
@@ -74,9 +75,12 @@ public class Anagram {
   public static boolean validAnagram(String s1, String s2) {
 
     String regex = "\\s+";
+    s1 = s1.replaceAll(regex, "").toLowerCase();
+    s2 = s2.replaceAll(regex, "").toLowerCase();
+    char[] S1 = s1.toCharArray();
+    char[] S2 = s2.toCharArray();
 
-    s1 = s1.replaceAll(regex, "");
-    s2 = s2.replaceAll(regex, "");
+
 
     int lenStrOne = s1.length();
     int lenStrTwo = s2.length();
@@ -84,16 +88,20 @@ public class Anagram {
     if (lenStrOne != lenStrTwo)
       return false;
 
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
 
     List<char[]> sOne = new ArrayList<>(Collections.singleton(s1.toCharArray()));
+    for (char[] s : sOne) {
+      System.out.println(Arrays.toString(s));
+    }
     List<char[]> sTwo = new ArrayList<>(Collections.singleton(s2.toCharArray()));
+    for (char[] s : sTwo) {
+      System.out.println(Arrays.toString(s));
+    }
 
     List<char[]> sortedOne = sOne.stream().sorted().toList();
     List<char[]> sortedTwo = sTwo.stream().sorted().toList();
 
-    return  (sortedOne.equals(sortedTwo));
+    return  sortedOne.equals(sortedTwo);
   }
 }
 

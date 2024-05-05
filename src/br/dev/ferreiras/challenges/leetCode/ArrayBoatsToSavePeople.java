@@ -84,16 +84,17 @@ public class ArrayBoatsToSavePeople {
 
   public static int numRescueBoats(int[] people, int limit) {
     Arrays.sort(people);
-    int right = people.length - 1, left = 0, count = 0;
+    int right = people.length - 1, left = 0, currentWeight = 0, boats = 0;
 
     while (left <= right) {
-      if (people[right] + people[left] <= limit) {
+      currentWeight = people[right] + people[left];
+      if (currentWeight <= limit) {
         left++;
       }
       right--;
-      count++;
+      boats++;
     }
 
-    return count;
+    return boats;
   }
 }
