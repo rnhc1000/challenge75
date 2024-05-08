@@ -18,7 +18,11 @@ public class Student {
       this.grade = grade;
     }
 
-    public String getName() {
+  public Student() {
+
+  }
+
+  public String getName() {
       return name;
     }
 
