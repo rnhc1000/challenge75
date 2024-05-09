@@ -1,21 +1,19 @@
 package br.dev.ferreiras.oca;
 
 public class Generic {
+  public static <T> void printEverything(T parameter) {
+    System.out.println(parameter + "!!!!!!");
+  }
+
+  public static <T extends Comparable<T>> T getMax(T x, T y) {
+    return (x.compareTo(y) > 0) ? x : y;
+  }
+
   public static void main(String[] args) {
-    double price = 90000;
-    String model ="";
-    if(price > 100000) {
-      model = "Tesla Model X";
-    } else if(price <= 100000) {
-      model = "Tesla Model S";
-    }
-    System.out.println(model);
-
-//    System.out.println("Output is: " + 10 != 5);
     String s1 = "OCAJP";
-    String s2 = "OCAJP" + "";
-    System.out.println(s1.equals(s2));
-    System.out.println(s1 == s2);
-
+    printEverything(s1);
+    printEverything(5);
+    System.out.println(getMax(10,20));
+    System.out.println(getMax("Ricardo", "Ferreira"));
   }
 }
