@@ -26,16 +26,16 @@ public class LinkedListChallenge {
   public static LinkedList<Integer> amazonChallenge(LinkedList<Integer> amazon) {
     LinkedList<Integer> sumToZero = new LinkedList<>();
     int size = amazon.size();
-    int left = 0, right = size - 1;
+    int left = 1, right = size - 1;
     int next = 1, sum = 0, count = 1;
 
     for (Integer element : amazon) {
       sum+=element;
-      while (right >= 0) {
 
         if (sum == 0) {
 
           while (count > 0) {
+            sumToZero.add(amazon.get(left-1));
             sumToZero.add(amazon.get(left));
             left++;
             count--;
@@ -44,11 +44,11 @@ public class LinkedListChallenge {
         } else {
           next++;
           count++;
-          sum += amazon.get(next);
+          //sum += amazon.get(next);
         }
         right--;
         left++;
-      }
+
     }
     return sumToZero;
   }
