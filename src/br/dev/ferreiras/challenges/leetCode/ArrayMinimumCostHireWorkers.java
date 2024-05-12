@@ -69,7 +69,7 @@ public class ArrayMinimumCostHireWorkers {
   record Worker(int quality, int wage) {
   }
 
-  public static double minimumCostToHireWorkers(int[] quality, int[] wage, int k) {
+  public static double mincostToHireWorkers(int[] quality, int[] wage, int k) {
 
     int size = quality.length;
     Worker[] workers = new Worker[size];
@@ -105,7 +105,7 @@ public class ArrayMinimumCostHireWorkers {
     int[] quality = {10, 20, 5};
     int[] wage = {70, 50, 30};
     int kx = 2;
-    double result = minimumCostToHireWorkers(quality, wage, kx);
+    double result = mincostToHireWorkers(quality, wage, kx);
     System.out.printf("%.4f", result);
   }
 }
