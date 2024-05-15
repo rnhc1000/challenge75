@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 /*
 Given an integer array nums, return true if any value appears at least twice in the array,
@@ -55,6 +56,7 @@ public class ArrayContainsDuplicatesOne {
 
         if (nums[i] == nums[j]) {
           return true;
+
         }
       }
     }
@@ -62,13 +64,15 @@ public class ArrayContainsDuplicatesOne {
   }
 
   public static boolean containsDuplicates(int[] nums, boolean flag) {
-
+    Logger logger = Logger.getLogger(ArrayContainsDuplicatesOne.class.getName());
+    logger.info("Task had just been submitted!");
     Set<Integer> set = new LinkedHashSet<>();
     for (int num :  nums) {
+      logger.info("Iterating over the nums[] and trying to add each -> " + num +" to a set");
       if (!set.add(num)) {
+        logger.info("Tried to add a repeated nums[i] -> " + num + " to a set, returned false, negated, and end of program returning true");
         return true;
       }
-      System.out.println(set);
     }
     return false;
   }
