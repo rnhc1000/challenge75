@@ -7,11 +7,10 @@ public class UsingPair {
 
   public static void main(String[] args) {
     String nome = "Ricardo";
-    Integer idade = 67;
-    RecordPair pair = new RecordPair(nome, idade);
-
-    System.out.println(pair.getKey());
-    System.out.println(pair.getValue());
+    int idade = 67;
+    Pair pair = new Pair(nome, idade);
+    System.out.println(pair);
+    System.out.printf("%s, %d", pair.name(), pair.age());
   }
 
 
