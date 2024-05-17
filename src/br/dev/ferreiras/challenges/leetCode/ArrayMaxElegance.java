@@ -97,8 +97,7 @@ public class ArrayMaxElegance {
         response = Math.max(response, current + (long) visitedCategory.size() * visitedCategory.size());
       }
     }
+
     return response;
-
   }
-
 }
