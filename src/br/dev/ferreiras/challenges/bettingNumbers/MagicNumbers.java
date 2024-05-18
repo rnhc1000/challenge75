@@ -6,7 +6,8 @@ import java.util.function.Function;
 public class MagicNumbers {
   static Random random = new Random();
   static int seed = 0;
-
+//7, 34, 36, 39, 43, 48
+  //1, 3, 21, 24, 26, 55
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.print("Input quantity of numbers: ");

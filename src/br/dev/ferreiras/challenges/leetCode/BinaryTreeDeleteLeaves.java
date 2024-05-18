@@ -57,7 +57,7 @@ public class BinaryTreeDeleteLeaves {
     if (root.right != null) {
       root.right = removeLeafNodes(root.right, target);
     }
-    if (root.left == null && root.right == null && root.val == target) {
+    if (root.left == null && root.right == null && root.value == target) {
       return null;
     }
     return root;
