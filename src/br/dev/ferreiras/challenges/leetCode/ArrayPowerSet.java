@@ -2,6 +2,7 @@ package br.dev.ferreiras.challenges.leetCode;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /*
 Given an integer array nums of unique elements, return all possible subsets (the power set).
@@ -48,12 +49,14 @@ Value of Counter            Subset
    110                    -> bc
    111                    -> abc
 
-If ith bit in counter is set
-if((counter & (1 << j)) > 0){
+ If ith bit in counter is set
+ Add ith element from set for this subset
+      if((counter & (1 << j)) > 0){
         list.add(nums[j]);
       }
  */
 public class ArrayPowerSet {
+  private final static Logger logger = Logger.getLogger(ArrayPowerSet.class.getName());
   public static void main(String[] args) {
     int[] nums = {1,2,3};
     List<List<Integer>> lists = ArrayPowerSet.subsets(nums);
@@ -64,17 +67,21 @@ public class ArrayPowerSet {
   }
   public static List<List<Integer>> subsets(int[] nums) {
   List<List<Integer>> listOfLists = new LinkedList<>();
-
+  logger.info("Determination of stream size;");
   int size = nums.length;
+  logger.info("Size: -> " + size );
+  logger.info("PowerSet - Math.pow(2, size)");
   double powerSet = Math.pow(2, size);
-
-  for (int i = 0; i < powerSet; i++) {
+  logger.info("PowerSet: -> " + powerSet);
+  for (int countSet = 0; countSet < powerSet; countSet++) {
+    logger.info("Iterating over the power-set " + countSet);
     List<Integer> list = new LinkedList<>();
-    for (int j=0; j < size; j++) {
-      //If ith bit in counter is set
-      //Print ith element from set for this subset
-      if((i & (1 << j)) > 0){
-        list.add(nums[j]);
+    for (int num=0; num < size; num++) {
+      logger.info("Iterating over the stream nums");
+
+      if((countSet & (1 << num)) > 0){
+        logger.info("Checking if nums[num] bit is set");
+        list.add(nums[num]);
       }
     }
     listOfLists.add(list);
