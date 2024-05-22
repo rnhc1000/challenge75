@@ -15,10 +15,16 @@ package br.dev.ferreiras.challenges.leetCode;
  */
 
 public class PalindromicSubstrings {
+  public static void main(String[] args) {
+    String s = "aab";
+    int response = countSubstringx(s);
+    System.out.println(response);
+  }
 
-  public int check(String s, int i, int j) {
+  public static int check(String s, int i, int j) {
     int ans = 0;
     while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
+      System.out.println(s.charAt(i));
       ans++;
       i--;
       j++;
@@ -26,7 +32,7 @@ public class PalindromicSubstrings {
     return ans;
   }
 
-  public int countSubstringx(String s) {
+  public static int countSubstringx(String s) {
     int ans = 0;
     for (int i = 0; i < s.length(); i++) {
       ans += check(s, i, i);
