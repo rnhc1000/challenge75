@@ -3,6 +3,7 @@ package br.dev.ferreiras.challenges.leetCode;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 /*
 Given an integer array nums of unique elements, return all possible subsets (the power set).
@@ -64,6 +65,8 @@ public class ArrayPowerSet {
       System.out.print(list);
       System.out.print("\t");
     }
+
+    Stream.of("Red","Green","Blue").map(String::toUpperCase).peek(System.out::println).count();
   }
   public static List<List<Integer>> subsets(int[] nums) {
   List<List<Integer>> listOfLists = new LinkedList<>();
