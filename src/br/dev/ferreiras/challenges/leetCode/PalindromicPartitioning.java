@@ -1,5 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,32 +23,44 @@ Constraints:
 s contains only lowercase English letters.
  */
 public class PalindromicPartitioning {
+  public static void main(String[] args) {
+    String s = "aab";
+    List<List<String>> response = partition(s);
+    for (List<String> list : response) {
+      System.out.println(list);
+    }
+  }
 
   public static boolean isPalindrome(String s, int left, int right) {
     while (left <= right) {
-      if (s.charAt(left) != s.charAt(right)) {
+      if (s.charAt(left++) != s.charAt(right--)) {
         return false;
-      } else {
-        left++;
-        right--;
       }
     }
     return true;
   }
 
-  public List<List<String>> partition(String s) {
-    List<List<String>> lists = new LinkedList<>();
-
-    char[] ch = s.toCharArray();
-    List<String> list = new LinkedList<>();
-
-    int upper = ch.length - 1;
-    for (char c : ch) {
-      list.add(String.valueOf(c));
+  private static void backtrack(String s, int start, List<String> path, List<List<String>> result) {
+    // If we've reached the end of the string, add the current partition to the result list
+    if (start == s.length()) {
+      result.add(new ArrayList<>(path));
+      return;
     }
-
-    lists.add(list);
-
-    return lists;
+    // Explore all possible partitions
+    for (int end = start + 1; end <= s.length(); end++) {
+      // If the current substring is a palindrome, add it to the current path
+      if (isPalindrome(s, start, end - 1)) {
+        path.add(s.substring(start, end));
+        // Recur to find other partitions
+        backtrack(s, end, path, result);
+        // Backtrack to explore other partitions
+        path.remove(path.size() - 1);
+      }
+    }
+  }
+  public static List<List<String>> partition(String s) {
+    List<List<String>> result = new ArrayList<>();
+    backtrack(s, 0, new ArrayList<>(), result);
+    return result;
   }
 }
