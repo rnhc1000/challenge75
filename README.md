@@ -25,8 +25,8 @@ Let's dive into it!
 ## _Links_
 - Live Site URL: [https://leetcode.com/u/rferreira_757/] 
 ## _Built with_
+[![My Skills](https://skillicons.dev/icons?i=java,git,idea,redhat)](https://skillicons.dev)
 
- ![](https://ferreiras.dev.br/assets/images/icons/java-icon.svg)| ![](https://ferreiras.dev.br/assets/images/icons/git-scm-icon.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-intellij-idea.svg) | ![](https://ferreiras.dev.br/assets/images/icons/linux-original.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-visual-studio-code.svg)
 
  ## _What I practiced_
 ```java
