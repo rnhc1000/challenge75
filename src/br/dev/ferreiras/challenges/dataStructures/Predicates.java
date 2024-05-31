@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 public class Predicates {
   public static void main(String[] args) {
+    TaskRunner taskRunner = new TaskRunner();
     Predicate<Integer> lesserThan = x -> (x < 18);
     Scanner input = new Scanner(System.in);
     System.out.print("Input any number: ");
