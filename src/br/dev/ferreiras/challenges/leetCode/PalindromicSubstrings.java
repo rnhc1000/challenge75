@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.leetCode;
 
-/**
+/*
  * Given a string s, return the number of palindromic substrings in it.
  * A string is a palindrome when it reads the same backward as forward.
  * A substring is a contiguous sequence of characters within the string.
@@ -16,7 +16,7 @@ package br.dev.ferreiras.challenges.leetCode;
 
 public class PalindromicSubstrings {
   public static void main(String[] args) {
-    String s = "aab";
+    String s = "baab";
     int response = countSubstringx(s);
     System.out.println(response);
   }
