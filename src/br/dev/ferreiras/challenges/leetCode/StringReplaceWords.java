@@ -57,12 +57,12 @@ Remove any trailing whitespace using trim().
  */
 public class StringReplaceWords {
   static class Trie {
-    private class Node {
-      Node arr[];
+    private static class Node {
+      Node[] nodes;
       boolean isWord;
 
       Node() {
-        arr = new Node[26];
+        nodes = new Node[26];
       }
     }
 
@@ -73,33 +73,33 @@ public class StringReplaceWords {
     }
 
     void add(String word) {
-      Node curr = root;
+      Node currentNode = root;
       for (int i = 0; i < word.length(); i++) {
-        char c = word.charAt(i);
-        int index = c - 'a';
-        if (curr.arr[index] != null) {
-          curr = curr.arr[index];
+        char ch = word.charAt(i);
+        int index = ch - 'a';
+        if (currentNode.nodes[index] != null) {
+          currentNode = currentNode.nodes[index];
         } else {
-          curr.arr[index] = new Node();
-          curr = curr.arr[index];
+          currentNode.nodes[index] = new Node();
+          currentNode = currentNode.nodes[index];
         }
       }
-      curr.isWord = true;
+      currentNode.isWord = true;
     }
 
     String getRoot(String word) {
-      Node curr = root;
+      Node currentNode = root;
       int i = 0;
       for (; i < word.length(); i++) {
 
-        if (curr.isWord) {
+        if (currentNode.isWord) {
           break;
         }
-        char c = word.charAt(i);
-        int index = c - 'a';
+        char ch = word.charAt(i);
+        int index = ch - 'a';
 
-        if (curr.arr[index] != null) {
-          curr = curr.arr[index];
+        if (currentNode.nodes[index] != null) {
+          currentNode = currentNode.nodes[index];
         } else {
           return "";
         }
@@ -114,7 +114,6 @@ public class StringReplaceWords {
     String response = replaceWord(dictionary, sentence);
     System.out.println("Sentence: " + response);
   }
-
 
   public static String replaceWord(List<String> dictionary, String sentence) {
     Trie trie = new Trie();
