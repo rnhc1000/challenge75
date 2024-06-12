@@ -2,7 +2,7 @@ package br.dev.ferreiras.challenges.dailyChallenges.feb;
 
 import java.util.*;
 
-/**
+/*
  * Given an array of strings strings, group the anagrams together.
  * You can return the answer in any order.
  * An Anagram is a word or phrase formed by rearranging the letters
