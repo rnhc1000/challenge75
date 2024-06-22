@@ -21,7 +21,20 @@ package br.dev.ferreiras.adatech;
      */
 
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+
 public class RetornaMenorValor {
+
+  public static void main(String[] args) {
+    Input input = new Input();
+    input.nums = new int[]{3, 1, 4, 1, 5, 9, 2, 7, 8};
+    input.alvo = 10;
+    int response = encontraPares(input);
+    System.out.println(response);
+  }
   static class Input {
     public int[] nums;
     public int alvo;
@@ -31,18 +44,25 @@ public class RetornaMenorValor {
     int[] nums = input.nums;
     int alvo = input.alvo;
     // Implemente seu código aqui
+//    Arrays.sort(nums);
+    List<Integer> pair = new LinkedList<>();
     int min = nums[0];
-    int candidate = nums[0];
-    for (int i = 1; i < nums.length; i++) {
-      int sum = nums[i] + nums[i - 1];
-      if (sum == alvo) {
-        min = Math.min(nums[i], nums[i - 1]);
-        candidate = Math.min(candidate, min);
+    int candidate = Integer.MAX_VALUE;
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = i + 1; j < nums.length; j++) {
+        int sum = nums[i] + nums[j];
+        if (sum == alvo) {
+          pair.add(nums[i]);
+          pair.add(nums[j]);
+          min = Math.min(nums[i], nums[j]);
+          candidate = Math.min(candidate, min);
 
+        }
       }
     }
+    System.out.println(pair);
 
-    return candidate;
+    return pair.stream().map(x -> x).min(Comparator.naturalOrder()).get();
   }
 }
 
