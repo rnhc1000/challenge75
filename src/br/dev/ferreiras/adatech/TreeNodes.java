@@ -34,8 +34,6 @@ Exemplo de Entrada e Saída
 Árvore 1
 Entrada:
 
-
-
 TreeNodes raiz = new TreeNodes(3);
 raiz.left = new TreeNodes(9);
 raiz.right = new TreeNodes(20, new TreeNodes(15), new TreeNodes(7));
@@ -78,9 +76,18 @@ public class TreeNodes {
     this.right = right;
   }
 
-  public int somaFolhas() {
-    //implemente a lógica aqui
+  public static int somaFolhas(TreeNodes raiz) {
+    // Implemente seu código aqui
     return 0;
+  }
+
+  @Override
+  public String toString() {
+    return "TreeNodes{" +
+            "val=" + val +
+            ", left=" + left +
+            ", right=" + right +
+            '}';
   }
 
   public void setLeft(TreeNodes left) {
@@ -89,6 +96,11 @@ public class TreeNodes {
 
   public void setRight(TreeNodes right) {
     this.right = right;
+  }
+
+  public static void main(String[] args) {
+
+
   }
 }
 
