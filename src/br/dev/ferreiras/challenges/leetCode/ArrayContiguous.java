@@ -24,7 +24,7 @@ nums[i] is either 0 or 1.
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContiguousArray {
+public class ArrayContiguous  {
 
   public static void main(String[] args) {
     int[] array = {0, 1, 0};
