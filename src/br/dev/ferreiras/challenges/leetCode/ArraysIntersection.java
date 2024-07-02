@@ -37,7 +37,7 @@ public class ArraysIntersection {
     int[] response = intersect(nums1, nums2);
     System.out.println(Arrays.toString(response));
   }
-  public static int[] intersect(int[] nums1, int[] nums2) {
+  public static int[] intersection(int[] nums1, int[] nums2) {
     List<Integer> list = new LinkedList<>();
     Arrays.sort(nums1);
     Arrays.sort(nums2);
@@ -61,7 +61,7 @@ public class ArraysIntersection {
     return list.stream().mapToInt(k->k).toArray();
   }
 
-  public static int[] intersection(int[] nums1, int[] nums2) {
+  public static int[] intersect(int[] nums1, int[] nums2) {
     List<Integer> list = new LinkedList<>();
     Map<Integer, Integer> map = new LinkedHashMap<>();
     for (int num1 : nums1) {
@@ -70,10 +70,18 @@ public class ArraysIntersection {
     System.out.println(map);
     for (int num2 : nums2) {
       if (map.containsKey(num2)) {
-        list.add(num2);
+        map.put(num2, map.getOrDefault((num2),0) + 1);
+      } else {
+        map.put(num2, map.getOrDefault((num2), 1));
       }
     }
 
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+      if(entry.getValue() >= 2) {
+        list.add(entry.getKey());
+      }
+    }
+    System.out.println(map);
     return list.stream().mapToInt(i->i).toArray();
   }
 }
