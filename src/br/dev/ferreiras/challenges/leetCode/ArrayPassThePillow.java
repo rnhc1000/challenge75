@@ -50,6 +50,7 @@ public class ArrayPassThePillow {
         direction = -direction;
 
       }
+      
       time--;
     }
 
