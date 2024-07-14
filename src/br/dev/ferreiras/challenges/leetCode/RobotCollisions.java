@@ -58,7 +58,7 @@ All values in positions are distinct
 public class RobotCollisions {
 
   public static void main(String[] args) {
-    int [] positions = {5,4,3,2,1}, healths = {2,17,9,15,10};
+    int[] positions = {5, 4, 3, 2, 1}, healths = {2, 17, 9, 15, 10};
     String directions = "RRRRR";
     List<Integer> list = survivedRobotsHealths(
             positions,
@@ -68,6 +68,7 @@ public class RobotCollisions {
 
     System.out.println(list);
   }
+
   public static List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
     int n = positions.length;
     List<int[]> robots = new LinkedList<>();
@@ -76,7 +77,7 @@ public class RobotCollisions {
       robots.add(new int[]{positions[i], healths[i], directions.charAt(i), i});
     }
 
-    Collections.sort(robots, (a, b) -> Integer.compare(a[0], b[0]));
+    robots.sort((a, b) -> Integer.compare(a[0], b[0]));
 
     Deque<int[]> stack = new ArrayDeque<>();
 
@@ -117,7 +118,5 @@ public class RobotCollisions {
     }
 
     return result;
-
-
   }
 }
