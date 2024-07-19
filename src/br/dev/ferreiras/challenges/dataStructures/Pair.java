@@ -1,4 +1,4 @@
 package br.dev.ferreiras.challenges.dataStructures;
 
-public record Pair(String name, int age) {
+public record Pair<T, S>(String name, int age) {
 }

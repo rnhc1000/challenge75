@@ -58,32 +58,36 @@ The while loop terminates, and the function returns res = {2, 5}.
 
 import java.util.*;
 
-class Pair implements Comparable<Pair> {
-  double fraction;
-  int p1, p2;
 
-  public Pair(double fraction, int p1, int p2) {
-    this.fraction = fraction;
-    this.p1 = p1;
-    this.p2 = p2;
-  }
-
-  @Override
-  public int compareTo(Pair pair) {
-    return Double.compare(this.fraction, pair.fraction);
-  }
-
-  @Override
-  public String toString() {
-    return "Pair{" +
-            "fraction=" + fraction +
-            ", p1=" + p1 +
-            ", p2=" + p2 +
-            '}';
-  }
-}
 
 public class ArrayPrimeFraction {
+  static class Pair<T, S> implements Comparable<Pair<T, S>> {
+    double fraction;
+    int p1, p2;
+
+    public Pair(double fraction, int p1, int p2) {
+      this.fraction = fraction;
+      this.p1 = p1;
+      this.p2 = p2;
+    }
+
+
+    @Override
+    public int compareTo(Pair<T, S> pair) {
+
+      return Double.compare(this.fraction, pair.fraction);
+    }
+
+    @Override
+    public String toString() {
+      return "Pair{" +
+             "fraction=" + fraction +
+             ", p1=" + p1 +
+             ", p2=" + p2 +
+             '}';
+    }
+
+  }
   public static void main(String[] args) {
     int[] array = {1, 2, 3, 5};
     int k = 3;
@@ -162,11 +166,11 @@ public class ArrayPrimeFraction {
 
   public static int[] kthSmallestPrimeFractions(int[] arr, int k) {
     int [] response = new int[2];
-    Queue<Pair> queue = new PriorityQueue<>();
+    PriorityQueue<Pair> queue = new PriorityQueue<>();
     System.out.println(Arrays.toString(arr));
     for (int i = 0; i < arr.length; i++) {
       for (int j = i + 1; j < arr.length; j++) {
-        queue.add(new Pair((double) arr[i] / arr[j], i, j));
+        queue.offer(new Pair((double) arr[i] / arr[j], i, j));
       }
     }
     System.out.println(queue);
