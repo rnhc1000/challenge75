@@ -22,7 +22,7 @@ Output: 5
 Explanation: All elements of the array have a frequency of 1 which is the maximum.
 So the number of elements in the array with maximum frequency is 5.
  */
-public class MaximumFrequency {
+public class  MaximumFrequency {
   public static void main(String[] args) {
     int[] nums = {1,2,2,3,1,4};
     int sum = MaximumFrequency.maxFrequencyElements(nums);
