@@ -98,5 +98,4 @@ public class ArraySortingIncreasingFrequency {
       return Arrays.stream(numsArray).mapToInt(Integer::intValue).toArray();
     }
 
-
 }

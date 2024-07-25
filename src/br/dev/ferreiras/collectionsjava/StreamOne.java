@@ -11,7 +11,9 @@ public class StreamOne {
     for (Integer i : listOne) {
       System.out.println((i & 1) == 0);
     }
-
+/*
+[4, 8, 12, 16]
+ */
   }
   public static List<Integer> filtering(List<Integer> list) {
 
