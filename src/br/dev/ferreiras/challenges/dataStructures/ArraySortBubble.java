@@ -15,16 +15,16 @@ public class ArraySortBubble {
   }
 
   public static int[] bubbleSort(int[] array) {
-    int i = 0;
+
     int size = array.length;
     int countInner = 0, countOuter = 0;
 
-    for (i = size - 1; i >= 0; i--) {
+    for (int i = size - 1; i >= 0; i--) {
       for (int j = 0; j < i; j++) {
         if (array[j + 1] < array[j]) {
-          array[j] =     array[j] ^     array[j + 1];
-          array[j + 1] = array[j + 1] ^ array[j];
-          array[j] =     array[j] ^     array[j + 1];
+          array[j] =     array[j]     ^     array[j + 1];
+          array[j + 1] = array[j + 1] ^     array[j];
+          array[j] =     array[j]     ^     array[j + 1];
         }
         countInner++;
       }
