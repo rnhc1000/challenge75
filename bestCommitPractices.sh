@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 git commit -m "feat(auth) ....."
 git commit -m "feat(login) ....."
 git commit -m "feat(logs) ....."

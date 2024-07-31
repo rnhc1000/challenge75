@@ -23,7 +23,7 @@ public class MaximumProfit {
 
     int size = costs.length;
     int profit = Integer.MIN_VALUE;
-    int[] minPrice = new int[size];
+    int[] minPrice  = new int[size];
     int[] profitMax = new int[size];
     minPrice[0] = costs[0];
 
@@ -61,8 +61,8 @@ public class MaximumProfit {
       }
 
     }
-    int y = 5;
-    int x = 10;
+    int y = 25 % 5;
+    int x = 100 % 10;
     int result = (x > y) ? x++ : y++;
     System.out.println(result + " " + x + " " + y);
 
