@@ -1,17 +1,15 @@
 package br.dev.ferreiras.oca;
 
-import java.awt.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 public class LocalDateClass {
  static {
-    System.out.println(1/0);
+    System.out.println(1);
   }
   public static void main(String[] a) {
     LocalTime time = LocalTime.of(16, 40);
@@ -31,13 +29,13 @@ public class LocalDateClass {
     String fruit = "mango";
     switch (fruit) {
 
-      case "Apple":
+      case "apple":
         System.out.println("APPLE");
-      case "Mango":
+      case "mango":
         System.out.println("MANGO");
       default:
         System.out.println("ANY FRUIT WILL DO");
-      case "Banana":
+      case "banana":
         System.out.println("BANANA");
         break;
     }
@@ -78,9 +76,11 @@ public class LocalDateClass {
 
     String [] array = {"A", "ab", "bab", "Aa", "bb", "baba", "aba", "Abab"};
 
-    Predicate<String> p = s -> s.toUpperCase().substring(0,1).equals("A");
+    Predicate<String> p = s -> s.toUpperCase().charAt(0) == 'A';
 
     processStringArray(array, p);
+
+    System.out.println(processAtomic(5));
 
   }
   private static void processStringArray(String [] arr, Predicate<String> predicate) {
@@ -91,6 +91,15 @@ public class LocalDateClass {
     }
   }
 
+  public static int processAtomic(Integer numberOne ){
+
+   AtomicInteger atomicInteger = new AtomicInteger(numberOne);
+
+    System.out.println(atomicInteger.addAndGet(10));
+    System.out.println(atomicInteger.getAndAdd(5));
+
+    return atomicInteger.get();
+  }
 
   static class Point {
     int x;
