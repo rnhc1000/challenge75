@@ -13,12 +13,12 @@ public class FirstUniqueCharacter {
     System.out.println(y);
   }
   public static char firstUniqueCharacter(String input) {
-    char[] c = input.toCharArray();
+//    char[] c = input.toCharArray();
     char response = 0;
-    int size = c.length;
+    int size = input.length();
     Map<Character, Integer> map = new LinkedHashMap<>();
     for (int i = 0; i < size; i++) {
-      map.put(c[i], map.getOrDefault((c[i]), 0) + 1);
+      map.put(input.charAt(i), map.getOrDefault(input.charAt(i), 0) + 1);
     }
     System.out.println(map);
     for (Map.Entry<Character, Integer> entry : map.entrySet()) {
