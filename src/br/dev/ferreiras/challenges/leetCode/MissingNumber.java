@@ -72,11 +72,11 @@ public class MissingNumber {
     return num;
   }
 
-  //1,N -> range for teh code below
+  //1,N -> range for the code below
   public static int missingOneNumber(int[] numbers, int n) {
     int i;
     int[] temp = new int[n+1];
-    for (int j = 0; j < n; j++) {
+    for (int j = 1; j < n; j++) {
       temp[numbers[j] - 1] = 1;
     }
     int response = 0;
