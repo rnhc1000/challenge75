@@ -26,8 +26,38 @@ public class ThreadGreetings {
       ((Thread) task).start();
     }
   }
-  public static void main(String[] args) {
-    executeAll();
+
+  public static void execute() throws InterruptedException {
+
+    Thread threadOne = new Thread(() -> {
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+      Thread.currentThread().setName("thread-hello");
+      Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
+      System.out.print("Hello, ");
+    });
+
+    Thread threadTwo = new Thread(() -> {
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+      Thread.currentThread().setName("thread-everybody");
+      Thread.currentThread().setPriority(Thread.NORM_PRIORITY);
+      System.out.print("Everybody!!!");
+    });
+
+    threadOne.start();
+    threadOne.join();
+    threadTwo.start();
+
+  }
+  public static void main(String... args) throws InterruptedException {
+    execute();
   }
 }
 
