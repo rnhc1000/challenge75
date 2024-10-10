@@ -1,4 +1,4 @@
-package br.dev.ferreiras.challenges.hackerRank;
+package br.dev.ferreiras.challenges.hackerrank;
 
 import java.util.Random;
 import java.util.regex.Matcher;

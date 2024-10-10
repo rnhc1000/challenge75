@@ -1,4 +1,4 @@
-package br.dev.ferreiras.challenges.hackerRank;
+package br.dev.ferreiras.challenges.hackerrank;
 
 import java.util.Arrays;
 import java.util.List;

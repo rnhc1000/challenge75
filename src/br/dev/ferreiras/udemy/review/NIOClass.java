@@ -1,10 +1,8 @@
 package br.dev.ferreiras.udemy.review;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.util.logging.Logger;
 
@@ -36,11 +34,7 @@ public class NIOClass {
         buffer.clear();
 
        }
-
-
-
     } catch (IOException ex) {
-
       System.out.println(ex.getMessage());
 
     }

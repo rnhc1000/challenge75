@@ -1,19 +1,13 @@
 package br.dev.ferreiras.udemy.review;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class BasicThread {
 
   public static void main(String... args) {
 
-    Runnable runnable = new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("Starting thread!");
-      }
-    };
+    Runnable runnable = () -> System.out.println("Starting thread!");
 
     Thread thread = new Thread(runnable);
     thread.start();
