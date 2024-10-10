@@ -1,4 +1,4 @@
-package br.dev.ferreiras.challenges.hackerRank;
+package br.dev.ferreiras.challenges.hackerrank;
 /*
  * given the html snippet code, return link and description
  * Input:

@@ -28,17 +28,16 @@ package br.dev.ferreiras.challenges.leetCode;
  *   countOnes++;
  */
 
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Arrays;
 
 public class CountingBits {
   public static void main(String[] args) {
 
-    int n = 5;
-    int[] r = countBits(n);
-    System.out.println(Arrays.toString(r));
-    System.out.println(intToBin(n));
+    int n = 1041;
+//    int[] r = countBits(n);
+//    System.out.println(Arrays.toString(r));
+    System.out.println(int2Bin(n));
   }
 
   public static int[] countBits(int n) {
@@ -56,17 +55,49 @@ public class CountingBits {
   }
 
   public static String intToBin(int n) {
-    int countOnes = 0;
-    Queue<Integer> q = new PriorityQueue<>();
+    Queue<Integer> q = new LinkedList<>();
     while (n > 0) {
       q.add(n % 2);
       n = n / 2;
     }
-    int[] c = new int[q.size()];
+    System.out.println(q);
     StringBuilder sb = new StringBuilder();
     while (!q.isEmpty()) {
       sb.append(q.remove());
     }
     return sb.reverse().toString();
+  }
+
+  public static int int2Bin(int n) {
+    Queue<Integer> queue = new LinkedList<>();
+    int currentSequence = 0, longestSequence = 0;
+    while (n > 0) {
+      queue.add(n % 2);
+      n = n / 2;
+    }
+    System.out.println(queue);
+    StringBuilder sb = new StringBuilder();
+    while (!queue.isEmpty()) {
+      sb.append(queue.remove());
+    }
+    String bin = sb.reverse().toString();
+
+    int countZeroes = 0;
+    for (char ch : bin.toCharArray()) {
+
+      if (ch == '0') {
+
+
+        currentSequence++;
+
+      } else {
+        countZeroes = 0;
+
+      }
+
+      currentSequence = Math.max(currentSequence, countZeroes);
+
+    }
+    return longestSequence;
   }
 }

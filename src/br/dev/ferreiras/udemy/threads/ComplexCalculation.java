@@ -14,7 +14,9 @@ public class ComplexCalculation {
       threadOne.join();
       threadTwo.join();
     } catch (InterruptedException e) {
-      throw new RuntimeException(e);
+
+      Thread.currentThread().interrupt();
+
     }
 
     return  threadOne.getResult().add(threadTwo.getResult());

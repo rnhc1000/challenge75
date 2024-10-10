@@ -1,4 +1,4 @@
-package br.dev.ferreiras.challenges.hackerRank;
+package br.dev.ferreiras.challenges.hackerrank;
 /**
  * @author rferreira
  * Kadane's Algorithm
@@ -46,7 +46,8 @@ public class KadaneAlgo {
     int currentSum = 0;
     for (int number : numbers) {
       currentSum = Math.max(currentSum, 0);
-      maximumSum = Math.max(maximumSum, currentSum += number);
+      currentSum += number;
+      maximumSum = Math.max(maximumSum, currentSum);
     }
     return maximumSum;
   }

@@ -1,13 +1,8 @@
-package br.dev.ferreiras.challenges.hackerRank;
+package br.dev.ferreiras.challenges.hackerrank;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static java.util.List.of;
 
 /**
  * @author rferreira
@@ -63,11 +58,11 @@ public class ParenthesisStack {
       if (x == '(' || x == '{' || x == '[') {
         listOfBrackets.push(x);
       } else {
-        if (x == ')' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '(') {
+        if (x == ')' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '(' ) {
           listOfBrackets.pop();
-        } else if (x == '}' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '{') {
+        } else if (x == '}' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '{' ) {
           listOfBrackets.pop();
-        } else if (x == ']' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '[') {
+        } else if (x == ']' && !listOfBrackets.isEmpty() && listOfBrackets.peek() == '[' ) {
           listOfBrackets.pop();
         } else {
           return false;
