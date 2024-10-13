@@ -1,4 +1,7 @@
 package br.dev.ferreiras.challenges.hackerrank;
+
+import java.util.Arrays;
+
 /*
 You are given N counters, initially set to 0, and you have two possible operations on them:
 
@@ -53,4 +56,27 @@ N and M are integers within the range [1..100,000];
 each element of array A is an integer within the range [1..N + 1].
  */
 public class ArrayMaxCounters {
+  public static void main(String[] args) {
+    int[] numbers = {3, 4, 4, 6, 1, 4, 4};
+    int key = 5;
+    int[] response = maxCounters(key, numbers);
+    System.out.println(Arrays.toString(response));
+  }
+
+  public static int[] maxCounters(int key, int[] numbers) {
+
+    int[] counters = new int[key];
+    int max = 0;
+    for (int number : numbers) {
+      if(number <= key) {
+        counters[number - 1]+=1;
+        max = Math.max(max, counters[number - 1]);
+        System.out.println(max);
+    } else {
+        Arrays.fill(counters, max);
+      }
+    }
+
+    return counters;
+  }
 }

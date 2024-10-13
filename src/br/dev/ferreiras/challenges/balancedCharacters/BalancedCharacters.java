@@ -40,7 +40,7 @@ public class BalancedCharacters {
       } else if(dictionary.containsValue(ch)) {
         if(!stack.isEmpty() && dictionary.get(stack.peek()).equals(ch)) {
           stack.pop();
-        } else{
+        } else {
           return false;
         }
       }

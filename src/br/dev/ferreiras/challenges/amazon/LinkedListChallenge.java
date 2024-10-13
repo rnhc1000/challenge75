@@ -9,6 +9,7 @@ package br.dev.ferreiras.challenges.amazon;
  */
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class LinkedListChallenge {
 
@@ -19,12 +20,12 @@ public class LinkedListChallenge {
       linkedList.add(number);
     }
     System.out.println(linkedList);
-    LinkedList<Integer> response = amazonChallenge(linkedList);
+    List<Integer> response = amazonChallenge(linkedList);
     System.out.println(response);
   }
 
-  public static LinkedList<Integer> amazonChallenge(LinkedList<Integer> amazon) {
-    LinkedList<Integer> sumToZero = new LinkedList<>();
+  public static List<Integer> amazonChallenge(List<Integer> amazon) {
+    List<Integer> sumToZero = new LinkedList<>();
     int size = amazon.size();
     int left = 1, right = size - 1;
     int next = 1, sum = 0, count = 1;
