@@ -192,6 +192,22 @@ public class LinkedListBasis {
         current = afterCurrent;
       }
     }
+
+    public Node reverseList(Node head) {
+
+      Node newNode = null;
+
+      while (head != null) {
+
+        Node nextNode = head.next;
+        head.next = newNode;
+        newNode = head;
+        head = nextNode;
+
+      }
+      return newNode;
+    }
+
     public Node getHead() {
       return head;
     }

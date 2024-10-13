@@ -1,7 +1,5 @@
 package br.dev.ferreiras.udemy.review;
 
-import br.dev.ferreiras.challenges.leetCode.FirstOcurrenceString;
-
 import java.io.*;
 
 public class SerializeClass {

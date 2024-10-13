@@ -57,7 +57,8 @@ import java.util.Set;
  * <p>
  * <p>
  * <p>
- * This algorithm uses the slow and fast pointer technique, also known as Floyd's Tortoise and Hare algorithm, to find the middle element of the linked list.
+ * This algorithm uses the slow and fast pointer technique, also known as Floyd's Tortoise and Hare algorithm,
+ * to find the middle element of the linked list.
  */
 public class LinkedList {
 

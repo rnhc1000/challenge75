@@ -1,6 +1,6 @@
 package br.dev.ferreiras.challenges.geeksForGeeks;
 
-import br.dev.ferreiras.challenges.leetCode.ClassPreamble;
+import br.dev.ferreiras.challenges.leetcode.ClassPreamble;
 
 /**
  * A gallery with plants is divided into n parts, numbered 0, 1, 2, 3, ..., n-1. There are provisions for attaching water sprinklers in every division. A sprinkler with range x at division i can water all divisions from i-x to i+x.
