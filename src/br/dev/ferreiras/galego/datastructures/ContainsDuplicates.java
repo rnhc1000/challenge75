@@ -1,5 +1,6 @@
 package br.dev.ferreiras.galego.datastructures;
 
+import java.time.Instant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -49,6 +50,9 @@ public class ContainsDuplicates {
       }
     }
 
+    Map<String, String> test = new LinkedHashMap<>();
+    test.put("currentTime", Instant.now().toString());
+    System.out.println(test);
    return false;
   }
 }
