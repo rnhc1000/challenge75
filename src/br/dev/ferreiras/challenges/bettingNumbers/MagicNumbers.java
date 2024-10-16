@@ -1,7 +1,7 @@
 package br.dev.ferreiras.challenges.bettingNumbers;
 
 import java.util.*;
-import java.util.function.Function;
+import java.util.function.IntUnaryOperator;
 
 public class MagicNumbers {
   static Random random = new Random();
@@ -18,7 +18,7 @@ public class MagicNumbers {
     input.close();
   }
 
-  public static Function<Integer, Integer> randomLambda = numbersMagic -> {
+  public static final IntUnaryOperator randomLambda = numbersMagic -> {
     numbersMagic = random.nextInt(1, seed);
     return numbersMagic;
   };
@@ -33,7 +33,7 @@ public class MagicNumbers {
     List<Integer> list = new ArrayList<>();
     int[] guess = new int[magicNumbers];
     for (int i = 0; i < magicNumbers; i++) {
-      guess[i] = randomLambda.apply(0);
+      guess[i] = randomLambda.applyAsInt((0));
     }
     Arrays.sort(guess);
     for (int i : guess) {
@@ -42,7 +42,7 @@ public class MagicNumbers {
       }
     }
     while (list.size() != magicNumbers) {
-      int temp = randomLambda.apply(0);
+      int temp = randomLambda.applyAsInt(0);
       if (!list.contains(temp)) {
         list.add(temp);
       }
