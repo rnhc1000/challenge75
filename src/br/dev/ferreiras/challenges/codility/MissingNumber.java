@@ -26,7 +26,7 @@ import java.util.stream.IntStream;
 public class MissingNumber {
   public static void main(String[] args) {
 //    int[] numbers = {-1, -3};
-    int[] numbers = {1, 3, 6, 4, 2};
+    int[] numbers = {1, 3, 6, 4, 2,5,8};
     int r = getMissingNumber(numbers);
     System.out.println(r);
   }

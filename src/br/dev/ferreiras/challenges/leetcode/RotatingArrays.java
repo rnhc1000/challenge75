@@ -48,8 +48,6 @@ public class RotatingArrays {
 
     int currentIndex = 0;
     int size = numbers.length;
-    Integer[] rotate = new Integer[size];
-    int index = 0;
     long start = System.currentTimeMillis();
       List<Integer> temp = new ArrayList<>();
       for (int i = size - 1; i >= 0; i--) {
