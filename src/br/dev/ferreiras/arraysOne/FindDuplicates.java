@@ -22,11 +22,11 @@ import java.util.*;
 public class FindDuplicates {
   public static void main(String[] args) {
     Random random = new Random();
-    int size = random.nextInt(0, 99);
+    int size = random.nextInt(0, 19);
     int[] array = new int[size];
 
     for (int i = 0; i < size; i++) {
-      array[i] = random.nextInt(0, 999);
+      array[i] = random.nextInt(0, 19);
       System.out.print(" " + array[i]);
     }
     System.out.println();
@@ -35,12 +35,15 @@ public class FindDuplicates {
     if (duplicates.length == 0) {
       System.out.println("There are no duplicates ['Sorry']");
     } else {
+      System.out.println("Duplicates!");
       for (Integer duplicate : duplicates) {
         System.out.print("[ " + duplicate + " ]");
       }
+      System.out.print("\n");
+      System.out.println("---------------");
     }
     int[] r = dreamArrayHandling(array);
-    System.out.println("---------------");
+
     System.out.println(Arrays.toString(r));
 
     System.out.println(duplicatesTortoiseHare());
@@ -48,7 +51,8 @@ public class FindDuplicates {
 
   public static int[] findDuplicates(int[] numbers) {
     List<Integer> response = new ArrayList<>();
-    Map<Integer, Integer> map = new HashMap<>();
+    Map<Integer, Integer> map = new LinkedHashMap<>();
+
     for (int number : numbers)
       map.put(number, map.getOrDefault((number), 0) + 1);
     for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
@@ -56,15 +60,16 @@ public class FindDuplicates {
         response.add(entry.getKey());
       }
     }
-    System.out.println(map.toString());
-    int[] duplicates = new int[response.size()];
-    int aux = 0;
-    for (Integer i : response) {
-      duplicates[aux] = i;
-      aux++;
-    }
-    Arrays.sort(duplicates);
-    return duplicates;
+    System.out.println(map);
+//    System.out.println(map.toString());
+//    int[] duplicates = new int[response.size()];
+//    int aux = 0;
+//    for (Integer i : response) {
+//      duplicates[aux] = i;
+//      aux++;
+//    }
+//    Arrays.sort(duplicates);
+    return response.stream().mapToInt(x -> x).toArray();
   }
 
   public static int[] dreamArrayHandling(int[] numbers) {
