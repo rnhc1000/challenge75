@@ -32,34 +32,34 @@ public class ValidParentheses {
       }
     }
 
-    int size = 6, sum = 0;
-    int[] n = { 1,2,3,4,5,6};
-    switch(size){
-      case 2:
-        sum += (n[0] + n[1]);
-        System.out.println(n[0]+"+"+n[1]+"="+sum);
-        break;
-      case 3:
-        sum += (n[0] + n[1] + n[2]);
-        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"="+sum);
-        break;
-      case 4:
-        sum += (n[0] + n[1] + n[2] + n[3]);
-        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"="+sum);
-        break;
-      case 5:
-        sum += (n[0] + n[1] + n[2] + n[3] + n[4]);
-        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"+"+n[4]+"="+sum);
-        break;
-      case 6:
-        sum += (n[5] + n[4] + n[3] + n[2] + n[1] + n[0]);
-        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"+"+n[4]+"+"+n[5]+"="+sum);
-        break;
-
-      default:
-        break;
-
-    }
+//    int size = 6, sum = 0;
+//    int[] n = { 1,2,3,4,5,6};
+//    switch(size){
+//      case 2:
+//        sum += (n[0] + n[1]);
+//        System.out.println(n[0]+"+"+n[1]+"="+sum);
+//        break;
+//      case 3:
+//        sum += (n[0] + n[1] + n[2]);
+//        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"="+sum);
+//        break;
+//      case 4:
+//        sum += (n[0] + n[1] + n[2] + n[3]);
+//        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"="+sum);
+//        break;
+//      case 5:
+//        sum += (n[0] + n[1] + n[2] + n[3] + n[4]);
+//        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"+"+n[4]+"="+sum);
+//        break;
+//      case 6:
+//        sum += (n[5] + n[4] + n[3] + n[2] + n[1] + n[0]);
+//        System.out.println(n[0]+"+"+n[1]+"+"+n[2]+"+"+n[3]+"+"+n[4]+"+"+n[5]+"="+sum);
+//        break;
+//
+//      default:
+//        break;
+//
+//    }
 
     return stack.isEmpty();
   }

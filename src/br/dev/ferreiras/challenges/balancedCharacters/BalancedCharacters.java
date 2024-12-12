@@ -15,7 +15,7 @@ import java.util.*;
 
 public class BalancedCharacters {
   public static void main(String[] args) {
-    String s = "((((()))))<>";
+    String s = "([)()]";
     boolean response = isValid(s);
     if (response) {
       System.out.println("Balanced string of characters");

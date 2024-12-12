@@ -5,9 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RotatingArrays {
+
   public static void main(String[] args) {
     String[] strings = {"Ricardo", "Alves", "Ferreira", "Silva"};
-    int[] numbers = { 1,2,3,4,5,6,7,8,9};
+    int[] numbers = { 5,6,7,1,2,3,4};
     int k = 3;
     String[] responseOne = rotatingArrays(strings, k);
     int[] responseTwo = rotatingArraysRight(numbers, k);
@@ -66,6 +67,6 @@ public class RotatingArrays {
     long end = System.currentTimeMillis();
     long diff = end - start;
     System.out.println("\n" + diff + " ms");
-    return temp.stream().mapToInt(x ->x).toArray();
+    return temp.stream().mapToInt( x -> x).toArray();
   }
 }
