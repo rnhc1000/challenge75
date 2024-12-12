@@ -36,7 +36,7 @@ public class Anagram {
     String s2 = "  brown fox quick                   the dog jumps dog the lazy over";
 
 //    boolean response = isAnagram(s1, s2);
-    boolean response = validAnagram(s1, s2);
+    boolean response = isAnagram(s1, s2);
 
 
     if (response) {

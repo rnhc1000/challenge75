@@ -1,7 +1,5 @@
 package br.dev.ferreiras.challenges.containerOfWater;
 
-import java.util.Arrays;
-
 public class MostWaterContainer {
 
   public static void main(String[] args) {
@@ -10,7 +8,8 @@ public class MostWaterContainer {
   }
   public static int maxArea(int[] height) {
     int areaContainer = 0;
-    int left = 0, right = 0;
+    int left = 0;
+    int right = 0;
     int size = height.length;
     right = size - 1;
     while (left < right) {

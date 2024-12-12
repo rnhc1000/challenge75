@@ -36,7 +36,7 @@ s[i] is '(', ')' or '*'
  */
 public class ValidParenthesesString {
   public static void main(String[] args) {
-    String s = "((*))";
+    String s = "([)()]";
     boolean f = checkValidString(s);
     System.out.println(f);
   }
