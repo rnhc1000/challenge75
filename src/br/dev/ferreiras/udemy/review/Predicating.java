@@ -6,16 +6,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 class SpecialString {
   String str;
   SpecialString(String str) {
     this.str = str;
   }
 }
+
 public class Predicating {
 
-  record Employee(String name, int age, double salary) {
-  }
+  private static final Logger logger = Logger.getLogger((Predicating.class.getName()));
+
+  record Employee(String name, int age, double salary) {}
 
   record Student(String name, int age) {}
 
@@ -39,16 +44,18 @@ public class Predicating {
       }
     }
     for(Object obj : arr) {
-      System.out.println(obj);
+      logger.log(Level.INFO, "::: Obj: {0} :::", obj);
     }
 
     LocalDate date = LocalDate.of(2020, 9, 30);
-    System.out.println(date);
+    logger.log(Level.INFO, "::: Date: {0} :::", date);
 //    int [] arr = new int[2];
 //    System.out.println(arr[0] + arr[1]);
-    String sa = "OCAJP";
-    String sc = "OCAJP" + "";
-    System.out.println(sa == sc);
+    String sa = "OCPJP";
+    StringBuilder sc = new StringBuilder();
+    logger.log(Level.INFO, "::: sc length: {0} :::", sc.length());
+    sc = sc.append(sa);
+    logger.log(Level.INFO, "::: sa is equal to sc {0} :::", sc);
 
     ArrayList<Counter> original = new ArrayList<>();
     original.add(new Counter(10));
@@ -56,7 +63,7 @@ public class Predicating {
     ArrayList<Counter> cloned = (ArrayList<Counter>) original.clone();
 //    cloned.get(0).count = 5;
 
-    System.out.println(original);
+    logger.log(Level.INFO, "::: original: {0} :::", original);
     String str = "java";
     StringBuilder sx = new StringBuilder("java");
 
@@ -68,7 +75,7 @@ public class Predicating {
     } else if(price <= 100000) {
       model = "Tesla Model S";
     }
-    System.out.println(model);
+    logger.log(Level.INFO, "::: Model: {0} :::", model);
 
     String s = new String("Hello");
     List<String> lw = new ArrayList<>();
@@ -77,29 +84,29 @@ public class Predicating {
     lw.add(s);
     s.replace("l", "L");
 
-    System.out.println(lw);
-    System.out.println(s);
+    logger.log(Level.INFO, "::: LW: {0} :::", lw);
+    logger.log(Level.INFO, "::: s: {0} :::", s);
     String fruit = "mango";
     switch (fruit) {
       default:
-        System.out.println("ANY FRUIT WILL DO");
+        logger.log(Level.INFO, "::: ANY FRUIT WILL DO :::");
       case "Apple":
-        System.out.println("APPLE");
+        logger.log(Level.INFO, "::: APPLE :::");
       case "Mango":
-        System.out.println("MANGO");
+        logger.log(Level.INFO, "::: MANGO :::");
       case "Banana":
-        System.out.println("BANANA");
+        logger.log(Level.INFO, "::: BANANA :::");
         break;
     }
-    System.out.println("Output is: " + (10 != 5));
+    logger.log(Level.INFO, "::: Output is: {0} :::",10 != 5);
     LocalDateTime obx = LocalDateTime.now();
-    System.out.println(obx.getSecond());
+    logger.log(Level.INFO, "::: SECONDS: {0} :::", obx.getSecond());
     String strx = new String("Core");
     String stry = new String("CoRe");
-    System.out.println(strx = stry);
+
 
     StringBuilder bs = new StringBuilder(100);
-    System.out.println(bs.length() + ":" + bs.toString().length());
+    logger.log(Level.INFO, "::: BS LENGTH: {0} :::", bs.length());
 //    try {
 //      main(args);
 //    } catch (Exception exp) {
@@ -119,10 +126,10 @@ public class Predicating {
     Predicate<Employee> ex = (employee1) ->  employee1.salary() >= 10000.0;
 
     process(list, employee);
-    System.out.println(list);
+    logger.log(Level.INFO, "::: employee :::",list);
 
     process(list, ex);
-    System.out.println(list);
+    logger.log(Level.INFO, "::: ex :::",list);
 
     StringBuilder sb = new StringBuilder();
 
@@ -210,11 +217,7 @@ public class Predicating {
 
 
   private static void process(List<Employee> list, Predicate<Employee> predicate) {
-    Iterator<Employee> iterator = list.iterator();
-    while (iterator.hasNext()) {
-      if (predicate.test(iterator.next()))
-        iterator.remove();
-    }
+    list.removeIf(predicate);
   }
 }
 
