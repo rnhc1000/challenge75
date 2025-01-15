@@ -18,14 +18,14 @@ public class MagicNumbers {
     input.close();
   }
 
-  public static final IntUnaryOperator randomLambda = numbersMagic -> {
-    numbersMagic = random.nextInt(1, seed);
-    return numbersMagic;
+  public static final IntUnaryOperator randomLambda = (magicNumbers) -> {
+    magicNumbers = random.nextInt(1, seed);
+    return magicNumbers;
   };
 
   public static List<Integer> magicNumbers(int magicNumbers) {
     switch (magicNumbers) {
-      case 6 -> seed = 60;
+      case 6, 7 -> seed = 60;
       case 15 -> seed = 80;
       case 18 -> seed = 25;
       default -> seed = 59;
