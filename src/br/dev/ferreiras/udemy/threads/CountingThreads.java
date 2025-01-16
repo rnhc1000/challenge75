@@ -25,7 +25,7 @@ class Counter {
 }
 
 class IncrementingThread extends Thread {
-  private Counter counter;
+  private final Counter counter;
 
   public IncrementingThread(Counter counter) {
     this.counter = counter;
@@ -40,8 +40,8 @@ class IncrementingThread extends Thread {
   }
 }
 
-class DecrementingThread extends Thread {
-  private Counter counter;
+class DecrementingThread implements Runnable {
+  private final Counter counter;
 
   public DecrementingThread(Counter counter) {
     this.counter = counter;
@@ -62,19 +62,23 @@ public class CountingThreads {
     IncrementingThread incrementingThread = new IncrementingThread(counter);
 
     DecrementingThread decrementingThread = new DecrementingThread(counter);
-    incrementingThread.start();
-    System.out.println("There are currently -> " + counter.getItems() + " items!");
+
+    Thread one = new Thread(incrementingThread);
+    Thread two = new Thread(decrementingThread);
+
+    one.start();
+    System.out.println("There are currently -> " + one.getName() + " " + counter.getItems() + " items!");
 
     try {
-      incrementingThread.join();
+      one.join();
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
-    decrementingThread.start();
-    System.out.println("There are currently -> " + counter.getItems() + " items!");
+    two.start();
+    System.out.println("There are currently -> " + two.getName() + " " + counter.getItems() + " items!");
 
     try {
-      decrementingThread.join();
+      two.join();
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
