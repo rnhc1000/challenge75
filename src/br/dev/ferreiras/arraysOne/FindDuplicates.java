@@ -1,7 +1,7 @@
 package br.dev.ferreiras.arraysOne;
 /**
- * To find duplicates the mostcommon approach is
- * to Set the array because Set Coolections do not allow
+ * To find duplicates the most common approach is
+ * to Set the array because Set Collections do not allow
  * them and compare the size.. If Set.size > array.length
  * there are duplicates....
  * This approach uses a HashMap and a getOrDefault((key),0 + 1)
