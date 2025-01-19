@@ -30,7 +30,7 @@ public class SumStringOrNumbers {
     try {
       System.out.println(sum(a, b));
     } catch (NumberFormatException ex) {
-      ex.printStackTrace();
+      ex.getMessage();
       System.out.println("Apenas numeros!");
     } finally {
       System.out.println(sum(x, y));
