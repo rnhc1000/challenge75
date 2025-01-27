@@ -8,7 +8,7 @@ public class RotatingArrays {
 
   public static void main(String[] args) {
     String[] strings = {"Ricardo", "Alves", "Ferreira", "Silva"};
-    int[] numbers = { 5,6,7,1,2,3,4};
+    int[] numbers = {3, 8, 9, 7, 6};
     int k = 3;
     String[] responseOne = rotatingArrays(strings, k);
     int[] responseTwo = rotatingArraysRight(numbers, k);
@@ -25,16 +25,13 @@ public class RotatingArrays {
     String[] rotate = new String[size];
     int index = 0;
 
-      List<String> temp = new ArrayList<>();
-      for (int i = 0 ; i  < size ; i++) {
+    List<String> temp = new ArrayList<>();
+    for (int i = 0; i < size; i++) {
 
-        currentIndex = (i + k) % size;
-        System.out.println(currentIndex);
-        temp.add(strings[currentIndex]);
-      }
-
-
-
+      currentIndex = (i + k) % size;
+      System.out.println(currentIndex);
+      temp.add(strings[currentIndex]);
+    }
 
 
     for (String s : temp) {
@@ -47,17 +44,22 @@ public class RotatingArrays {
 
   public static int[] rotatingArraysRight(int[] numbers, int k) {
 
+
     int currentIndex = 0;
     int size = numbers.length;
+
+    if (size == 0 || k % size == 0) return numbers;
+
+    int rotations = k % size; // normalize number of rotations
     long start = System.currentTimeMillis();
-      List<Integer> temp = new ArrayList<>();
-      for (int i = size - 1; i >= 0; i--) {
+    List<Integer> temp = new ArrayList<>();
+    for (int i = 0; i < size; i++) {
 
-        currentIndex = (currentIndex - 1 + size) % size;
-        System.out.println(currentIndex);
-        temp.add(numbers[currentIndex]);
+      currentIndex = (i + rotations) % size;
+      System.out.println(currentIndex);
+      temp.add(numbers[currentIndex]);
 
-      }
+    }
 
 
     for (Integer s : temp) {
@@ -67,6 +69,6 @@ public class RotatingArrays {
     long end = System.currentTimeMillis();
     long diff = end - start;
     System.out.println("\n" + diff + " ms");
-    return temp.stream().mapToInt( x -> x).toArray();
+    return temp.stream().mapToInt(x -> x).toArray();
   }
 }

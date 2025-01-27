@@ -8,19 +8,19 @@ import java.time.format.DateTimeFormatter;
 public class YearsDifference {
 
   public static void main(String[] args) {
-    String inicio = "18/10/1957";
-    String atual  = "18/10/2024";
-    int r = getYearsDifference(inicio, atual);
+    String start = "18/10/1957";
+    String end  = "18/10/2024";
+    int r = getYearsDifference(start, end);
     System.out.println(r);
   }
 
-  public static int getYearsDifference(String inicio, String fim) {
+  public static int getYearsDifference(String start, String end) {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    int start = LocalDate.parse(inicio, formatter).getYear();
-    int end =   LocalDate.parse(fim, formatter).getYear();
+    int s = LocalDate.parse(start, formatter).getYear();
+    int e =   LocalDate.parse(end, formatter).getYear();
 
-    return end - start;
+    return e - s;
   }
 }
 
