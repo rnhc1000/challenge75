@@ -45,16 +45,21 @@ public class MissingNumber {
   public static void main(String[] args) {
     int[] numbers = {1, 3, 6, 4, 2};
     int n = numbers.length;
-    int r = missingNumbers(numbers);
+    int r = missNumber(numbers);
     System.out.println(r);
   }
 
   public static int missNumber(int[] nums) {
-    int miss = nums.length;
-    for (int i = 0; i < nums.length; i++) {
-      miss ^= i ^ nums[i];
+    long missing = 0;
+    int size = nums.length;
+
+    missing = (size + 1L) * (size + 2L) /2;
+
+    for(int num : nums) {
+      missing-=num;
     }
-    return miss;
+
+    return (int)missing;
   }
 
   public static int missingNumber(int[] nums) {

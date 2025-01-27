@@ -33,6 +33,8 @@ public class FuzzBuzz {
   public static void fizzBuzz() {
     StringBuilder sb = new StringBuilder();
 
+
+
     for (int i = 1; i <= 100; i++) {
 
       if (i % 15 == 0) {

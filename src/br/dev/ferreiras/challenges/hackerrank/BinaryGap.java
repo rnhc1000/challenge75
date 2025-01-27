@@ -9,7 +9,7 @@ public class BinaryGap {
 
   public static void main(String[] args) {
     int number = 1041;
-    int response = binaryGap(number);
+    int response = largestGap(number);
     System.out.println("\nResult-1 -> " + response);
     response = solution(number);
     System.out.println("\nResult-2 -> " + response);
@@ -58,34 +58,77 @@ public class BinaryGap {
   }
 
   public static int solution(int N) {
-    Deque<Integer> queue = new ArrayDeque<>();;
+    Deque<Integer> queue = new ArrayDeque<>();
     StringBuilder sb = new StringBuilder();
-    int countZeroes = 0;
     while(N > 0) {
-
       queue.push(N % 2);
       N /= 2;
-
     }
 
+    boolean gap = false;
+    int maxGap = 0;
+    int currentGap = 0;
     int size = queue.size();
     while (size > 0) {
       sb.append(queue.pop());
       size--;
     }
 
+    String binary = sb.reverse().toString();
 
+    for (int i = 0; i < binary.length(); i++) {
 
-    for (char ch : sb.toString().toCharArray()) {
-
-      if (ch == '0') countZeroes++;
+      if (binary.charAt(i) == '1') {
+        if(gap) {
+          maxGap = Math.max(maxGap, currentGap);
+          currentGap = 0;
+        }
+        gap = true;
+      } else if(gap) {
+        currentGap++;
+      }
     }
 
+    return maxGap;
+  }
 
+  public static int largestGap(int number) {
 
+    String binary = Integer.toBinaryString(number);
+    boolean gap = false;
+    int maxGap = 0;
+    int currentGap = 0;
 
-    return countZeroes;
+    for (int i=0; i<binary.length(); i++) {
+      if(binary.charAt(i) == '1') {
 
+        if(gap) {
+          maxGap = Math.max(currentGap, maxGap);
+          currentGap=0;
+        }
+        gap = true;
+      }else if (gap) {
+        currentGap++;
+      }
+    }
 
+    return maxGap;
   }
 }
+
+/*
+        for (int i = 0; i < binary.length(); i++) {
+            // If the character is '1'
+            if (binary.charAt(i) == '1') {
+                // If we were counting a gap, check if it's the longest one found so far
+                if (counting) {
+                    maxGap = Math.max(maxGap, currentGap);
+                    currentGap = 0; // Reset current gap
+                }
+                counting = true; // Start counting for the next gap
+            } else if (counting) {
+                // If the character is '0' and we are inside a gap
+                currentGap++;
+            }
+        }
+ */
