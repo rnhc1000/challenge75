@@ -53,7 +53,7 @@ public class MissingNumber {
     long missing = 0;
     int size = nums.length;
 
-    missing = (size + 1L) * (size + 2L) /2;
+    missing = (size + 1L) * (size + 2L) / 2;
 
     for(int num : nums) {
       missing-=num;
