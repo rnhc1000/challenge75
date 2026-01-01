@@ -10,6 +10,7 @@ public class ComplexCalculation {
     PowerCalculatingThread threadTwo = new PowerCalculatingThread(base2, power2);
     threadOne.start();
     threadTwo.start();
+
     try {
       threadOne.join();
       threadTwo.join();
