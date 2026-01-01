@@ -6,7 +6,7 @@ package br.dev.ferreiras.challenges.math;
 public class LogBase {
 
   public static void main(String[] args) {
-    int m = 145;
+    int m = 144;
     int p = 2;
     int n = (int) log(m,p);
 
@@ -14,6 +14,7 @@ public class LogBase {
   }
 
   public static double log(double value, double base) {
+
     return Math.log(value)/Math.log(base);
   }
 }

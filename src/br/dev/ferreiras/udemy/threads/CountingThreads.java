@@ -14,6 +14,8 @@ class Counter {
   public  void decrement() {
     synchronized (this.lock) {
       items--;
+
+      System.out.print(getItems());
     }
   }
 
@@ -49,7 +51,7 @@ class DecrementingThread implements Runnable {
 
   @Override
   public void run() {
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 10000; i > 0; i--) {
       counter.decrement();
     }
   }
